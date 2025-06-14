@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Abstract toggle functionality
+    const abstractToggles = document.querySelectorAll('.abstract-toggle');
+    abstractToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', !expanded);
+            
+            const content = toggle.nextElementSibling;
+            content.classList.toggle('hidden');
+            
+            toggle.querySelector('span').textContent = expanded ? 'Show Abstract' : 'Hide Abstract';
+        });
+    });
+    
     // Dark mode toggle
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
