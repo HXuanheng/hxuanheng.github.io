@@ -111,6 +111,12 @@ nav ul li a {
     transition: color 0.3s;
 }
 
+/* Highlight active navigation link */
+nav ul li a.active {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
 /* Hero Section */
 #hero {
     background-color: var(--light-bg-color);
