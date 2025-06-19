@@ -1,1 +1,295 @@
-Hello! I am Xuanheng Huang
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xuanheng Huang - Research Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="main-wrapper">
+        <!-- Sidebar / Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div class="profile">
+                    <div class="profile-image">
+                        <img src="profile-photo.png" alt="Xuanheng Huang" onerror="this.src='https://via.placeholder.com/150x150?text=Photo'">
+                    </div>
+                    <h1 class="profile-name">Xuanheng Huang</h1>
+                    <p class="profile-title">PhD Student at Bocconi University</p>
+                    <div class="social-links">
+                        <a href="mailto:xuanheng.huang@phd.unibocconi.it" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <!-- Add more social links as needed -->
+                        <a href="https://github.com/HXuanheng" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <!-- <a href="https://scholar.google.com" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a> -->
+                    </div>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#publications"><i class="fas fa-book"></i> Publications</a></li>
+                        <li><a href="#working-papers"><i class="fas fa-file-alt"></i> Working Papers</a></li>
+                        <li><a href="#wips"><i class="fas fa-flask"></i> Working in Progress</a></li>
+                        <!-- <li><a href="#presentations"><i class="fas fa-chalkboard-teacher"></i> Presentations</a></li> -->
+                        <li><a href="#cv"><i class="fas fa-file-pdf"></i> CV</a></li>
+                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div class="main-header">
+                <div class="theme-switch">
+                    <button id="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+            <section id="home" class="hero-section">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>I'm Xuanheng Huang</h1>
+                        <h2>PhD Researcher in Accounting</h2>
+                        <p class="hero-description">
+                            I am a PhD student at Bocconi University in the Department of Accounting. 
+                            My research focuses on M&A, Supply Chain, and Valuation.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#contact" class="button primary-button">Let's Connect!</a>
+                            <a href="#cv" class="button secondary-button">View CV</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- <section id="research" class="section">
+                <h2 class="section-title">Research Interests</h2>
+                <div class="research-grid">
+                    <div class="research-item">
+                        <div class="research-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>M&A</h3>
+                        <p>Research on mergers and acquisitions, focusing on valuation impacts and strategic decisions.</p>
+                    </div>
+                    <div class="research-item">
+                        <div class="research-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h3>Supply Chain</h3>
+                        <p>Analysis of supply chain dynamics and their impact on firm performance and accounting practices.</p>
+                    </div>
+                    <div class="research-item">
+                        <div class="research-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3>Valuation</h3>
+                        <p>Development and analysis of valuation methodologies for firms under various market conditions.</p>
+                    </div>
+                </div>
+            </section> -->
+
+            <section id="publications" class="section">
+                <h2 class="section-title">Publications</h2>
+                <div class="publications-container">
+                    Nothing to show yet :(
+                    <!-- <div class="publication-card">
+                        <div class="publication-content">
+                            <div class="publication-badges">
+                                <span class="badge">Working Paper</span>
+                            </div>
+                            <h3 class="publication-title">Paper Title 1</h3>
+                            <p class="publication-authors">Huang, X., Co-author, A., & Co-author, B.</p>
+                            <p class="publication-abstract">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                            <div class="publication-links">
+                                <a href="#" class="link-button"><i class="fas fa-file-pdf"></i> PDF</a>
+                                <a href="#" class="link-button"><i class="fas fa-code"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="publication-card">
+                        <div class="publication-content">
+                            <div class="publication-badges">
+                                <span class="badge">Submitted</span>
+                            </div>
+                            <h3 class="publication-title">Paper Title 2</h3>
+                            <p class="publication-authors">Huang, X., & Co-author, C.</p>
+                            <p class="publication-abstract">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                            <div class="publication-links">
+                                <a href="#" class="link-button"><i class="fas fa-file-pdf"></i> PDF</a>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </section>
+
+            <section id="working-papers" class="section">
+                <h2 class="section-title">Working Papers</h2>
+                <div class="publications-container">
+                    <div class="publication-card">
+                        <div class="publication-content">
+                            <h3 class="publication-title">Leverage and Operating Risk in Asset Pricing: An Accounting Perspective</h3>
+                            <p class="publication-authors">Huang, X., & <a href="https://www.lse.ac.uk/accounting/people/peter-pope" target="_blank">Pope, P.</a></p>
+                            <div class="project-tags">
+                                <span class="tag">Factor Models</span>
+                                <span class="tag">Leverage</span>
+                                <span class="tag">Valuation</span>
+                            </div>
+                            <div class="abstract-container">
+                                <button class="abstract-toggle" aria-expanded="false">
+                                    <i class="fas fa-plus-circle"></i> <span>Show Abstract</span>
+                                </button>
+                                <div class="abstract-content hidden">
+                                    <p>Separating operating from financial effects helps capture firm fundamentals, as these two types of risk tend to offset each other in the cross-section. We revisit the Fama-French six-factor model (FF6; 2018) by recomputing factors using operating characteristics while separately accounting for financial leverage. Our six-factor model subsumes the original FF6 model and outperforms the q-factor model (HXZ; 2015) in explaining a large set of documented anomalies. The improvement in capturing operating risk primarily stems from using return on net operating assets and growth in net operating assets as measures of profitability and investment, respectively. The enterprise book-to-market ratio becomes redundant once we consider the other operating characteristics. Additionally, after we control for operating effects, leverage is positively associated with returns, as predicted by theory, suggesting a renewed role for a leverage factor in asset pricing.</p>
+                                </div>
+                            </div>
+                            <div class="publication-links">
+                                <!-- <a href="#" class="link-button"><i class="fas fa-file-pdf"></i> PDF</a>
+                                <a href="#" class="link-button"><i class="fas fa-code"></i> Code</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="wips" class="section">
+                <h2 class="section-title">Work in Progress</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3>Disclosure of Merger Synergies</h3>
+                            <p class="publication-authors"><a href="https://atifellahie.com/" target="_blank">Ellahie, A.</a>, Huang, X., <a href="https://www.london.edu/faculty-and-research/faculty-profiles/t/tuna-i" target="_blank">Tuna, I.</a>, & <a href="https://faculty.unibocconi.eu/robertovincenzi/" target="_blank">Vincenzi, R.</a></p>
+                            <div class="project-tags">
+                                <span class="tag">Disclosure</span>
+                                <span class="tag">M&A</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="project-card">
+                        <div class="project-content">
+                            <h3>Open-book, Reporting, and Audit Rights: Evidence from Supply Chain Agreements</h3>
+                            <p class="publication-authors">Huang, X.</p>
+                            <div class="project-tags">
+                                <span class="tag">Audit Rights</span>
+                                <span class="tag">Supply Chain</span>
+                                <span class="tag">Open Book Management</span>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3>Characteristic-based Factors and exposure to macroeconomic risks</h3>
+                            <p class="publication-authors">Huang, X., & <a href="https://www.lse.ac.uk/accounting/people/peter-pope" target="_blank">Pope, P.</a></p>
+                            <div class="project-tags">
+                                <span class="tag">Factor Models</span>
+                                <span class="tag">Macro Risk</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cv" class="section">
+                <h2 class="section-title">Curriculum Vitae</h2>
+                <div class="cv-container">
+                    <!-- <div class="cv-card">
+                        <div class="cv-card-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="cv-card-content">
+                            <h3>Download my CV</h3>
+                            <p>Get a complete overview of my academic background, research experience, and publications.</p>
+                            <a href="cv/main.pdf" class="button primary-button" target="_blank">
+                                <i class="fas fa-download"></i> Download CV
+                            </a>
+                        </div>
+                    </div> -->
+                    
+                    <div class="cv-embed">
+                        <iframe src="cv/cv.pdf" width="100%" height="600px" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!-- <section id="presentations" class="section">
+                <h2 class="section-title">Presentations</h2>
+                <div class="presentations-container">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2025</div>
+                            <div class="timeline-content">
+                                <h3>EAA, Accounting Summer Camp (Early Researcher Consortium)</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2024</div>
+                            <div class="timeline-content">
+                                <h3>Columbia University</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2023</div>
+                            <div class="timeline-content">
+                                <h3>Milan PhD Workshop</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+
+            <section id="contact" class="section">
+                <h2 class="section-title">Contact Me</h2>
+                <div class="contact-container">
+                    <div class="contact-info-card">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Office</h3>
+                                <p>Bocconi University - Department of Accounting</p>
+                                <p>Via Roetgen 1, 20136, Milan, Italy</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p><a href="mailto:xuanheng.huang@phd.unibocconi.it">xuanheng.huang@phd.unibocconi.it</a></p>
+                                <p><a href="mailto:huangxuanheng@gmail.com">huangxuanheng@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <div class="footer-content">
+                    <p>&copy; 2025 Xuanheng Huang. Last updated: June 14, 2025</p>
+                    <div class="footer-links">
+                        <a href="https://github.com/HXuanheng" target="_blank"><i class="fab fa-github"></i></a>
+                        <!-- <a href="https://scholar.google.com" target="_blank"><i class="fas fa-graduation-cap"></i></a> -->
+                        <a href="mailto:xuanheng.huang@phd.unibocconi.it"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
