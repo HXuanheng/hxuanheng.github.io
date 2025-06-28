@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery - Xuanheng Huang</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .gallery-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--primary-hover);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .photo-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 1.5rem 1rem 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-item:hover .photo-overlay {
+            transform: translateY(0);
+        }
+        
+        .photo-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .photo-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .photo-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .photo-modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+        }
+        
+        .modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 8px;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            padding: 1rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        
+        .modal-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .modal-prev {
+            left: -80px;
+        }
+        
+        .modal-next {
+            right: -80px;
+        }
+        
+        .folder-info {
+            background: var(--card-bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .dark-mode .folder-info {
+            background: var(--card-bg-dark);
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-container {
+                padding: 1rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+            
+            .modal-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Places
+        </a>
+        
+        <div class="gallery-header">
+            <h1 id="gallery-title">Photo Gallery</h1>
+            <p id="gallery-description">Beautiful moments captured during my travels</p>
+        </div>
+        
+        <div class="folder-info">
+            <div id="folder-instructions">
+                <h3>📁 How to Add Your Photos</h3>
+                <p>To populate this gallery with your photos:</p>
+                <ol style="text-align: left; max-width: 500px; margin: 1rem auto;">
+                    <li>Create folders like <code>photos/paris/</code>, <code>photos/tokyo/</code>, etc.</li>
+                    <li>Add your photos to these folders</li>
+                    <li>Update the JavaScript below to reference your actual photo files</li>
+                    <li>The photos will automatically appear in this gallery</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="gallery-grid" id="photo-gallery">
+            <!-- Sample photos - replace with your actual photos -->
+            <div class="photo-item" onclick="openModal(0)">
+                <img src="https://images.unsplash.com/photo-1502602898536-47ad22581b52?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sample Photo 1">
+                <div class="photo-overlay">
+                    <div class="photo-title">Eiffel Tower at Sunset</div>
+                    <div class="photo-description">Golden hour in Paris - simply magical</div>
+                </div>
+            </div>
+            
+            <div class="photo-item" onclick="openModal(1)">
+                <img src="https://images.unsplash.com/photo-1549693578-d683be217e58?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sample Photo 2">
+                <div class="photo-overlay">
+                    <div class="photo-title">Montmartre Streets</div>
+                    <div class="photo-description">Charming cobblestone streets of artistic quarter</div>
+                </div>
+            </div>
+            
+            <div class="photo-item" onclick="openModal(2)">
+                <img src="https://images.unsplash.com/photo-1471623432079-b009d30b6729?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sample Photo 3">
+                <div class="photo-overlay">
+                    <div class="photo-title">Seine River</div>
+                    <div class="photo-description">Evening cruise along the historic river</div>
+                </div>
+            </div>
+            
+            <div class="photo-item" onclick="openModal(3)">
+                <img src="https://images.unsplash.com/photo-1524168272322-bf73616d9cb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sample Photo 4">
+                <div class="photo-overlay">
+                    <div class="photo-title">Louvre Museum</div>
+                    <div class="photo-description">Art and architecture in perfect harmony</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Photo Modal -->
+    <div class="photo-modal" id="photo-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <button class="modal-nav modal-prev" onclick="changePhoto(-1)">&#8249;</button>
+            <img class="modal-image" id="modal-image" src="" alt="">
+            <button class="modal-nav modal-next" onclick="changePhoto(1)">&#8250;</button>
+        </div>
+    </div>
+    
+    <script>
+        let currentPhotoIndex = 0;
+        
+        // Sample photo data - replace with your actual photos
+        const photos = [
+            {
+                src: "https://images.unsplash.com/photo-1502602898536-47ad22581b52?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                title: "Eiffel Tower at Sunset",
+                description: "Golden hour in Paris - simply magical"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1549693578-d683be217e58?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                title: "Montmartre Streets",
+                description: "Charming cobblestone streets of artistic quarter"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1471623432079-b009d30b6729?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                title: "Seine River",
+                description: "Evening cruise along the historic river"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1524168272322-bf73616d9cb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                title: "Louvre Museum",
+                description: "Art and architecture in perfect harmony"
+            }
+        ];
+        
+        function openModal(index) {
+            currentPhotoIndex = index;
+            const modal = document.getElementById('photo-modal');
+            const modalImage = document.getElementById('modal-image');
+            
+            modalImage.src = photos[index].src;
+            modalImage.alt = photos[index].title;
+            modal.classList.add('active');
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('photo-modal');
+            modal.classList.remove('active');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+        
+        function changePhoto(direction) {
+            currentPhotoIndex += direction;
+            
+            if (currentPhotoIndex >= photos.length) {
+                currentPhotoIndex = 0;
+            } else if (currentPhotoIndex < 0) {
+                currentPhotoIndex = photos.length - 1;
+            }
+            
+            const modalImage = document.getElementById('modal-image');
+            modalImage.src = photos[currentPhotoIndex].src;
+            modalImage.alt = photos[currentPhotoIndex].title;
+        }
+        
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            } else if (e.key === 'ArrowLeft') {
+                changePhoto(-1);
+            } else if (e.key === 'ArrowRight') {
+                changePhoto(1);
+            }
+        });
+        
+        // Close modal when clicking outside the image
+        document.getElementById('photo-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Get folder from URL parameter and customize gallery
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const folder = urlParams.get('folder');
+            
+            if (folder) {
+                // Customize gallery based on folder
+                const folderName = folder.split('/').filter(part => part).pop();
+                document.getElementById('gallery-title').textContent = `${folderName.charAt(0).toUpperCase() + folderName.slice(1)} Photos`;
+                document.getElementById('gallery-description').textContent = `Photos from my trip to ${folderName}`;
+            }
+            
+            // Check for saved theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.body.classList.toggle('dark-theme', savedTheme === 'dark');
+            }
+        });
+        
+        // Example function to load photos from a specific folder
+        // You would implement this to actually read files from your photo directories
+        async function loadPhotosFromFolder(folderPath) {
+            // This is a placeholder - in a real implementation, you would:
+            // 1. Use a backend service to list files in the folder
+            // 2. Or pre-generate a JSON file with photo metadata
+            // 3. Or use a static site generator to build the photo list
+            
+            console.log(`Loading photos from: ${folderPath}`);
+            // Return the sample photos for now
+            return photos;
+        }
+    </script>
+</body>
+</html>

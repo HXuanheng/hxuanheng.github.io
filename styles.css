@@ -893,6 +893,100 @@ ul {
     margin-bottom: 0.5rem;
 }
 
+/* Personal Section Styles */
+.personal-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.personal-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.personal-link-card {
+    background: var(--card-bg-light);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow-light);
+    transition: all var(--transition-speed) ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.dark-mode .personal-link-card {
+    background: var(--card-bg-dark);
+    box-shadow: var(--card-shadow-dark);
+}
+
+.personal-link-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(62, 84, 172, 0.15);
+}
+
+.dark-mode .personal-link-card:hover {
+    box-shadow: 0 20px 40px rgba(62, 84, 172, 0.3);
+}
+
+.personal-link-icon {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-shrink: 0;
+}
+
+.personal-link-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.personal-link-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.dark-mode .personal-link-content h3 {
+    color: var(--text-dark);
+}
+
+.personal-link-content p {
+    color: var(--text-muted-light);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.dark-mode .personal-link-content p {
+    color: var(--text-muted-dark);
+}
+
+.personal-link-content .button {
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .personal-links-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .personal-link-card {
+        padding: 1.5rem;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .research-grid, 

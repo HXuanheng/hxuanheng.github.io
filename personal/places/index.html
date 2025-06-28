@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Places I Have Been - Xuanheng Huang</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS and JS (Free alternative to Google Maps) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        .places-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .places-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .places-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .places-header p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--primary-hover);
+        }
+        
+        .map-container {
+            margin-bottom: 3rem;
+        }
+        
+        .map-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        #map {
+            height: 500px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Custom Leaflet Popup Styles */
+        .leaflet-popup-content-wrapper {
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .leaflet-popup-content {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .custom-popup {
+            max-width: 350px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .popup-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            padding: 16px 16px 0 16px;
+        }
+        
+        .popup-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        
+        .popup-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1f2937;
+            margin: 0;
+            line-height: 1.2;
+        }
+        
+        .popup-date {
+            font-size: 12px;
+            color: #6b7280;
+            margin: 2px 0 0 0;
+        }
+        
+        .popup-description {
+            font-size: 14px;
+            color: #374151;
+            line-height: 1.5;
+            margin-bottom: 12px;
+            padding: 0 16px;
+        }
+        
+        .popup-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-bottom: 12px;
+            padding: 0 16px;
+        }
+        
+        .popup-tag {
+            background: #3e54ac;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        .popup-music {
+            border-top: 1px solid #e5e7eb;
+            padding: 12px 16px;
+        }
+        
+        .popup-music-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .popup-music-item {
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 2px;
+        }
+        
+        .popup-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            padding: 0 16px 16px 16px;
+        }
+        
+        .popup-btn {
+            background: #3e54ac;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: background-color 0.2s;
+            flex: 1;
+            justify-content: center;
+        }
+        
+        .popup-btn:hover {
+            background: #334191;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .popup-btn.secondary {
+            background: #6b7280;
+        }
+        
+        .popup-btn.secondary:hover {
+            background: #4b5563;
+        }
+        
+        /* Custom marker styles */
+        .custom-marker {
+            background: #3e54ac;
+            border: 3px solid white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .places-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .place-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .place-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .place-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .place-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3));
+        }
+        
+        .place-content {
+            padding: 1.5rem;
+        }
+        
+        .place-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .place-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        
+        .place-date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .place-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .place-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .place-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .place-music {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .music-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .music-item {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.3rem;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .places-container {
+                padding: 1rem;
+            }
+            
+            .places-header h1 {
+                font-size: 2rem;
+            }
+            
+            .places-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            #map {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="places-container">
+        <a href="../../main.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Main
+        </a>
+        
+        <div class="places-header">
+            <h1>Places I Have Been</h1>
+            <p>A journey through the cities and places that have shaped my experiences</p>
+        </div>
+        
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Countries Visited</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">25</div>
+                <div class="stat-label">Cities Explored</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Continents</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Photos Taken</div>
+            </div>
+        </div>
+        
+        <div class="map-container">
+            <h2 class="map-title">Interactive Travel Map</h2>
+            <div id="map"></div>
+        </div>
+        
+        <div class="places-grid">
+            <div class="place-card">
+                <div class="place-image" style="background-image: url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2020&q=80')"></div>
+                <div class="place-content">
+                    <div class="place-header">
+                        <h3 class="place-title">Paris, France</h3>
+                        <span class="place-date">June 2024</span>
+                    </div>
+                    <p class="place-description">
+                        The City of Light captivated me with its timeless elegance, from the Eiffel Tower's golden glow to the charming cobblestone streets of Montmartre.
+                    </p>
+                    <div class="place-tags">
+                        <span class="place-tag">Culture</span>
+                        <span class="place-tag">Art</span>
+                        <span class="place-tag">History</span>
+                    </div>
+                    <div class="place-music">
+                        <div class="music-title">
+                            <i class="fas fa-music"></i> Soundtrack
+                        </div>
+                        <div class="music-item">🎵 La Vie En Rose - Édith Piaf</div>
+                        <div class="music-item">🎵 Sous le Ciel de Paris - Yves Montand</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="place-card">
+                <div class="place-image" style="background-image: url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+                <div class="place-content">
+                    <div class="place-header">
+                        <h3 class="place-title">Tokyo, Japan</h3>
+                        <span class="place-date">March 2024</span>
+                    </div>
+                    <p class="place-description">
+                        A fascinating blend of ultra-modern technology and ancient traditions. From the bustling streets of Shibuya to the serene temples of Asakusa.
+                    </p>
+                    <div class="place-tags">
+                        <span class="place-tag">Technology</span>
+                        <span class="place-tag">Food</span>
+                        <span class="place-tag">Tradition</span>
+                    </div>
+                    <div class="place-music">
+                        <div class="music-title">
+                            <i class="fas fa-music"></i> Soundtrack
+                        </div>
+                        <div class="music-item">🎵 Plastic Love - Mariya Takeuchi</div>
+                        <div class="music-item">🎵 Lost in Translation - My Bloody Valentine</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="place-card">
+                <div class="place-image" style="background-image: url('https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2083&q=80')"></div>
+                <div class="place-content">
+                    <div class="place-header">
+                        <h3 class="place-title">New York City, USA</h3>
+                        <span class="place-date">January 2024</span>
+                    </div>
+                    <p class="place-description">
+                        The city that never sleeps lived up to its reputation. From Broadway shows to Central Park walks, every corner had a story to tell.
+                    </p>
+                    <div class="place-tags">
+                        <span class="place-tag">Urban</span>
+                        <span class="place-tag">Entertainment</span>
+                        <span class="place-tag">Diversity</span>
+                    </div>
+                    <div class="place-music">
+                        <div class="music-title">
+                            <i class="fas fa-music"></i> Soundtrack
+                        </div>
+                        <div class="music-item">🎵 Empire State of Mind - Jay-Z ft. Alicia Keys</div>
+                        <div class="music-item">🎵 New York, New York - Frank Sinatra</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="place-card">
+                <div class="place-image" style="background-image: url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+                <div class="place-content">
+                    <div class="place-header">
+                        <h3 class="place-title">Barcelona, Spain</h3>
+                        <span class="place-date">September 2023</span>
+                    </div>
+                    <p class="place-description">
+                        Gaudí's architectural masterpieces and the vibrant energy of Las Ramblas made Barcelona an unforgettable experience filled with art and passion.
+                    </p>
+                    <div class="place-tags">
+                        <span class="place-tag">Architecture</span>
+                        <span class="place-tag">Beach</span>
+                        <span class="place-tag">Nightlife</span>
+                    </div>
+                    <div class="place-music">
+                        <div class="music-title">
+                            <i class="fas fa-music"></i> Soundtrack
+                        </div>
+                        <div class="music-item">🎵 Barcelona - Freddie Mercury & Montserrat Caballé</div>
+                        <div class="music-item">🎵 Bamboléo - Gipsy Kings</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize Leaflet map (Free alternative to Google Maps)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the map
+            const map = L.map('map').setView([20, 0], 2);
+            
+            // Add OpenStreetMap tile layer (free)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            // Places data with detailed information
+            const places = [
+                {
+                    name: "Paris, France",
+                    coords: [48.8566, 2.3522],
+                    date: "June 2024",
+                    description: "The City of Light captivated me with its timeless elegance, from the Eiffel Tower's golden glow to the charming cobblestone streets of Montmartre.",
+                    image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+                    tags: ["Culture", "Art", "History"],
+                    music: [
+                        "🎵 La Vie En Rose - Édith Piaf",
+                        "🎵 Sous le Ciel de Paris - Yves Montand"
+                    ],
+                    photos_folder: "photos/paris/",
+                    music_playlist: "playlists/paris.m3u"
+                },
+                {
+                    name: "Tokyo, Japan",
+                    coords: [35.6762, 139.6503],
+                    date: "March 2024",
+                    description: "A fascinating blend of ultra-modern technology and ancient traditions. From the bustling streets of Shibuya to the serene temples of Asakusa.",
+                    image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+                    tags: ["Technology", "Food", "Tradition"],
+                    music: [
+                        "🎵 Plastic Love - Mariya Takeuchi",
+                        "🎵 Lost in Translation - My Bloody Valentine"
+                    ],
+                    photos_folder: "photos/tokyo/",
+                    music_playlist: "playlists/tokyo.m3u"
+                },
+                {
+                    name: "New York City, USA",
+                    coords: [40.7128, -74.0060],
+                    date: "January 2024",
+                    description: "The city that never sleeps lived up to its reputation. From Broadway shows to Central Park walks, every corner had a story to tell.",
+                    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+                    tags: ["Urban", "Entertainment", "Diversity"],
+                    music: [
+                        "🎵 Empire State of Mind - Jay-Z ft. Alicia Keys",
+                        "🎵 New York, New York - Frank Sinatra"
+                    ],
+                    photos_folder: "photos/nyc/",
+                    music_playlist: "playlists/nyc.m3u"
+                },
+                {
+                    name: "Barcelona, Spain",
+                    coords: [41.3851, 2.1734],
+                    date: "September 2023",
+                    description: "Gaudí's architectural masterpieces and the vibrant energy of Las Ramblas made Barcelona an unforgettable experience filled with art and passion.",
+                    image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+                    tags: ["Architecture", "Beach", "Nightlife"],
+                    music: [
+                        "🎵 Barcelona - Freddie Mercury & Montserrat Caballé",
+                        "🎵 Bamboléo - Gipsy Kings"
+                    ],
+                    photos_folder: "photos/barcelona/",
+                    music_playlist: "playlists/barcelona.m3u"
+                }
+            ];
+
+            // Create custom icon for markers
+            function createCustomIcon(number) {
+                return L.divIcon({
+                    className: 'custom-marker',
+                    html: number,
+                    iconSize: [30, 30],
+                    iconAnchor: [15, 15],
+                    popupAnchor: [0, -15]
+                });
+            }
+
+            // Create markers and popups for each place
+            places.forEach((place, index) => {
+                const marker = L.marker(place.coords, {
+                    icon: createCustomIcon(index + 1)
+                }).addTo(map);
+
+                // Create detailed popup content
+                const popupContent = `
+                    <div class="custom-popup">
+                        <div class="popup-header">
+                            <img src="${place.image}" alt="${place.name}" class="popup-image" />
+                            <div>
+                                <h3 class="popup-title">${place.name}</h3>
+                                <p class="popup-date">${place.date}</p>
+                            </div>
+                        </div>
+                        <p class="popup-description">${place.description}</p>
+                        <div class="popup-tags">
+                            ${place.tags.map(tag => `<span class="popup-tag">${tag}</span>`).join('')}
+                        </div>
+                        <div class="popup-music">
+                            <div class="popup-music-title">
+                                🎵 Soundtrack
+                            </div>
+                            ${place.music.map(song => `<div class="popup-music-item">${song}</div>`).join('')}
+                        </div>
+                        <div class="popup-buttons">
+                            <a href="#" onclick="openPhotos('${place.photos_folder}')" class="popup-btn">
+                                📷 Photos
+                            </a>
+                            <a href="#" onclick="openPlaylist('${place.music_playlist}')" class="popup-btn secondary">
+                                🎵 Playlist
+                            </a>
+                        </div>
+                    </div>
+                `;
+
+                marker.bindPopup(popupContent, {
+                    maxWidth: 350,
+                    className: 'custom-popup-container'
+                });
+            });
+        });
+
+        // Function to handle photo gallery opening
+        function openPhotos(folderPath) {
+            // Open the photo gallery page with the specific folder
+            window.open(`photo-gallery.html?folder=${encodeURIComponent(folderPath)}`, '_blank');
+        }
+
+        // Function to handle playlist opening
+        function openPlaylist(playlistPath) {
+            // For Spotify playlists (recommended approach)
+            // Replace with your actual Spotify playlist URLs
+            const spotifyPlaylists = {
+                'playlists/paris.m3u': 'https://open.spotify.com/playlist/37i9dQZF1DX4sWSpwq3LiO', // Example: French music
+                'playlists/tokyo.m3u': 'https://open.spotify.com/playlist/37i9dQZF1DX0GkMQb4R29a', // Example: Japanese music
+                'playlists/nyc.m3u': 'https://open.spotify.com/playlist/37i9dQZF1DXa71eg5j9dKW', // Example: NYC vibes
+                'playlists/barcelona.m3u': 'https://open.spotify.com/playlist/37i9dQZF1DX7KECbtE3n7j'  // Example: Spanish music
+            };
+            
+            if (spotifyPlaylists[playlistPath]) {
+                window.open(spotifyPlaylists[playlistPath], '_blank');
+            } else {
+                // Fallback for local playlists or other services
+                alert(`Opening playlist: ${playlistPath}\n\nTo implement:\n1. Create playlist files or\n2. Add Spotify/Apple Music playlist URLs\n3. Update the spotifyPlaylists object above`);
+            }
+        }
+
+        // Theme toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check for saved theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.body.classList.toggle('dark-theme', savedTheme === 'dark');
+            }
+        });
+    </script>
+</body>
+</html>
