@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const content = toggle.nextElementSibling;
             content.classList.toggle('hidden');
             
-            toggle.querySelector('span').textContent = expanded ? 'Show Abstract' : 'Hide Abstract';
+            toggle.querySelector('span').textContent = expanded ? 'Abstract' : 'Abstract';
         });
     });
     
@@ -37,65 +37,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('.top-nav a');
-    
-    for (const link of navLinks) {
-        link.addEventListener('click', function(e) {
-            if (this.getAttribute('href').startsWith('#')) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100, // Account for fixed header
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    }
-    
-    // Highlight active section based on scroll position
-    const highlightActiveSection = () => {
-        const sections = document.querySelectorAll('section');
-        const navItems = document.querySelectorAll('.top-nav a');
-        
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 120; // Account for fixed header
-            const sectionHeight = section.clientHeight;
-            
-            if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href') === '#' + current) {
-                item.classList.add('active');
-            }
-            
-            // Special case for home link
-            if (current === 'home' && item.getAttribute('href') === '#home') {
-                item.classList.add('active');
-            }
-        });
-    };
-    
-    window.addEventListener('scroll', highlightActiveSection);
-    
-    // Call once on initial load
-    highlightActiveSection();
-    
     // Mobile navigation toggle for new layout
     const createMobileNavToggle = () => {
         const header = document.querySelector('.main-header');
         const nav = document.querySelector('.top-nav');
+        
+        // Only create if elements exist and no toggle already exists
+        if (!header || !nav || document.querySelector('.mobile-nav-toggle')) {
+            return;
+        }
         
         // Create mobile toggle button
         const mobileToggle = document.createElement('button');
