@@ -13,132 +13,82 @@
 </head>
 <body>
     <div class="main-wrapper">
-        <!-- Sidebar / Navigation -->
-        <aside class="sidebar">
-            <div class="sidebar-content">
-                <div class="profile">
-                    <div class="profile-image">
-                        <img src="profile-photo.png" alt="Xuanheng Huang" onerror="this.src='https://via.placeholder.com/150x150?text=Photo'">
+        <!-- Header with navigation -->
+        <header class="main-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="theme-switch">
+                        <button id="theme-toggle" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
                     </div>
-                    <h1 class="profile-name">Xuanheng Huang</h1>
-                    <p class="profile-title">PhD Student at Bocconi University</p>
-                    <div class="social-links">
-                        <a href="mailto:xuanheng.huang@phd.unibocconi.it" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                        <!-- Add more social links as needed -->
-                        <a href="https://github.com/HXuanheng" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <!-- <a href="https://scholar.google.com" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a> -->
-                    </div>
+                    <nav class="top-nav">
+                        <ul>
+                            <li><a href="#home">About me</a></li>
+                            <li><a href="#publications">Publications</a></li>
+                            <li><a href="#working-papers">Working Papers</a></li>
+                            <li><a href="#wips">Work in Progress</a></li>
+                            <li><a href="#cv">CV</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
                 </div>
-                
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
-                        <li><a href="#publications"><i class="fas fa-book"></i> Publications</a></li>
-                        <li><a href="#working-papers"><i class="fas fa-file-alt"></i> Working Papers</a></li>
-                        <li><a href="#wips"><i class="fas fa-flask"></i> Work in Progress</a></li>
-                        <!-- <li><a href="#presentations"><i class="fas fa-chalkboard-teacher"></i> Presentations</a></li> -->
-                        <li><a href="#cv"><i class="fas fa-file-pdf"></i> CV</a></li>
-                        <!-- <li><a href="#personal"><i class="fas fa-heart"></i> Personal</a></li>S -->
-                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-                    </ul>
-                </nav>
             </div>
-        </aside>
+        </header>
 
         <!-- Main Content -->
         <main class="content">
-            <div class="main-header">
-                <div class="theme-switch">
-                    <button id="theme-toggle" aria-label="Toggle dark mode">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </div>
-            </div>
             <section id="home" class="hero-section">
                 <div class="container">
                     <div class="hero-content">
-                        <h1>Xuanheng Huang</h1>
-                        <h2>Researcher in Accounting</h2>
-                        <p class="hero-description">
-                            I am a PhD student at Bocconi University in the Department of Accounting. 
-                            My research focuses on M&A, Supply Chain, and Valuation.
-                        </p>
-                        <div class="hero-buttons">
-                            <a href="#contact" class="button primary-button">Let's Connect!</a>
-                            <a href="#cv" class="button secondary-button">View CV</a>
+                        <div class="profile-header">
+                            <div class="profile-image">
+                                <img src="profile-photo.png" alt="Xuanheng Huang" onerror="this.src='https://via.placeholder.com/120x120?text=Photo'">
+                            </div>
+                            <div class="profile-info">
+                                <h1>Xuanheng Huang</h1>
+                                <h2>PhD Student</h2>
+                                <h3>Bocconi University</h3>
+                            </div>
+                        </div>
+                        <div class="intro-text">
+                            <p>Hi there! 👋 I am a PhD student at Bocconi University in the Department of Accounting. 
+                            My research focuses on M&A, Supply Chain, and Valuation.</p>
+                            
+                            <p>My research interests include:</p>
+                            <ul class="research-interests">
+                                <li>• Mergers & Acquisitions</li>
+                                <li>• Supply Chain Dynamics</li>
+                                <li>• Valuation Methods</li>
+                                <li>• Asset Pricing</li>
+                                <li>• Corporate Finance</li>
+                                <li>• And much more! 🚀</li>
+                            </ul>
+                            
+                            <p>This website covers my <a href="#publications">publications</a>, <a href="#working-papers">working papers</a>, <a href="#wips">work in progress</a>, and <a href="#cv">CV</a>.</p>
+                            
+                            <p>Looking to connect? You can find me here:</p>
+                            <div class="contact-links">
+                                <p>• <a href="mailto:xuanheng.huang@phd.unibocconi.it">Email</a></p>
+                                <p>• <a href="https://github.com/HXuanheng" target="_blank">GitHub</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- <section id="research" class="section">
-                <h2 class="section-title">Research Interests</h2>
-                <div class="research-grid">
-                    <div class="research-item">
-                        <div class="research-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3>M&A</h3>
-                        <p>Research on mergers and acquisitions, focusing on valuation impacts and strategic decisions.</p>
-                    </div>
-                    <div class="research-item">
-                        <div class="research-icon">
-                            <i class="fas fa-link"></i>
-                        </div>
-                        <h3>Supply Chain</h3>
-                        <p>Analysis of supply chain dynamics and their impact on firm performance and accounting practices.</p>
-                    </div>
-                    <div class="research-item">
-                        <div class="research-icon">
-                            <i class="fas fa-calculator"></i>
-                        </div>
-                        <h3>Valuation</h3>
-                        <p>Development and analysis of valuation methodologies for firms under various market conditions.</p>
-                    </div>
-                </div>
-            </section> -->
-
             <section id="publications" class="section">
-                <h2 class="section-title">Publications</h2>
-                <div class="publications-container">
-                    Nothing to show yet :(
-                    <!-- <div class="publication-card">
-                        <div class="publication-content">
-                            <div class="publication-badges">
-                                <span class="badge">Working Paper</span>
-                            </div>
-                            <h3 class="publication-title">Paper Title 1</h3>
-                            <p class="publication-authors">Huang, X., Co-author, A., & Co-author, B.</p>
-                            <p class="publication-abstract">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p>
-                            <div class="publication-links">
-                                <a href="#" class="link-button"><i class="fas fa-file-pdf"></i> PDF</a>
-                                <a href="#" class="link-button"><i class="fas fa-code"></i> Code</a>
-                            </div>
-                        </div>
+                <div class="container">
+                    <h2 class="section-title">Publications</h2>
+                    <div class="publications-container">
+                        <p>Nothing to show yet :(</p>
                     </div>
-
-                    <div class="publication-card">
-                        <div class="publication-content">
-                            <div class="publication-badges">
-                                <span class="badge">Submitted</span>
-                            </div>
-                            <h3 class="publication-title">Paper Title 2</h3>
-                            <p class="publication-authors">Huang, X., & Co-author, C.</p>
-                            <p class="publication-abstract">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p>
-                            <div class="publication-links">
-                                <a href="#" class="link-button"><i class="fas fa-file-pdf"></i> PDF</a>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </section>
 
             <section id="working-papers" class="section">
-                <h2 class="section-title">Working Papers</h2>
+                <div class="container">
+                    <h2 class="section-title">Working Papers</h2>
                 <div class="publications-container">
                     <div class="publication-card">
                         <div class="publication-content">
@@ -167,7 +117,8 @@
             </section>
 
             <section id="wips" class="section">
-                <h2 class="section-title">Work in Progress</h2>
+                <div class="container">
+                    <h2 class="section-title">Work in Progress</h2>
                 <div class="projects-grid">
                     <div class="project-card">
                         <div class="project-content">
@@ -200,11 +151,13 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                 </div>
             </section>
 
             <section id="cv" class="section">
-                <h2 class="section-title">Curriculum Vitae</h2>
+                <div class="container">
+                    <h2 class="section-title">Curriculum Vitae</h2>
                 <div class="cv-container">
                     <!-- <div class="cv-card">
                         <div class="cv-card-icon">
@@ -222,70 +175,13 @@
                     <div class="cv-embed">
                         <iframe src="cv/cv.pdf" width="100%" height="600px" frameborder="0"></iframe>
                     </div>
+                    </div>
                 </div>
             </section>
 
-            <!-- <section id="personal" class="section">
-                <h2 class="section-title">Personal</h2>
-                <div class="personal-container">
-                    <div class="personal-links-grid">
-                        <div class="personal-link-card">
-                            <div class="personal-link-icon">
-                                <i class="fas fa-map-marked-alt"></i>
-                            </div>
-                            <div class="personal-link-content">
-                                <h3>Places I Have Been</h3>
-                                <p>Explore the cities and places I've visited around the world, with photos and memories from each location.</p>
-                                <a href="personal/places/index.html" class="button primary-button">
-                                    <i class="fas fa-external-link-alt"></i> Visit
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="personal-link-card">
-                            <div class="personal-link-icon">
-                                <i class="fas fa-music"></i>
-                            </div>
-                            <div class="personal-link-content">
-                                <h3>Music & Playlists</h3>
-                                <p>Discover the songs and playlists that accompany my travels and daily life.</p>
-                                <a href="#" class="button secondary-button">
-                                    <i class="fas fa-external-link-alt"></i> Coming Soon
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="personal-link-card">
-                            <div class="personal-link-icon">
-                                <i class="fas fa-camera"></i>
-                            </div>
-                            <div class="personal-link-content">
-                                <h3>Photography</h3>
-                                <p>A collection of photos from my travels and everyday moments.</p>
-                                <a href="#" class="button secondary-button">
-                                    <i class="fas fa-external-link-alt"></i> Coming Soon
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="personal-link-card">
-                            <div class="personal-link-icon">
-                                <i class="fas fa-book-open"></i>
-                            </div>
-                            <div class="personal-link-content">
-                                <h3>Reading List</h3>
-                                <p>Books I'm currently reading and recommendations from my personal library.</p>
-                                <a href="#" class="button secondary-button">
-                                    <i class="fas fa-external-link-alt"></i> Coming Soon
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
-
             <section id="contact" class="section">
-                <h2 class="section-title">Contact Me</h2>
+                <div class="container">
+                    <h2 class="section-title">Contact Me</h2>
                 <div class="contact-container">
                     <div class="contact-info-card">
                         <div class="contact-item">
@@ -306,7 +202,6 @@
                             <div class="contact-details">
                                 <h3>Email</h3>
                                 <p><a href="mailto:xuanheng.huang@phd.unibocconi.it">xuanheng.huang@phd.unibocconi.it</a></p>
-                                <p><a href="mailto:huangxuanheng@gmail.com">huangxuanheng@gmail.com</a></p>
                             </div>
                         </div>
                     </div>
@@ -314,12 +209,13 @@
             </section>
 
             <footer class="footer">
-                <div class="footer-content">
-                    <p>&copy; 2025 Xuanheng Huang. Last updated: June 28, 2025</p>
-                    <div class="footer-links">
-                        <a href="https://github.com/HXuanheng" target="_blank"><i class="fab fa-github"></i></a>
-                        <!-- <a href="https://scholar.google.com" target="_blank"><i class="fas fa-graduation-cap"></i></a> -->
-                        <a href="mailto:xuanheng.huang@phd.unibocconi.it"><i class="fas fa-envelope"></i></a>
+                <div class="container">
+                    <div class="footer-content">
+                        <p>&copy; 2025 Xuanheng Huang - Generated using HTML, CSS, and JavaScript 🚀</p>
+                        <div class="footer-links">
+                            <a href="https://github.com/HXuanheng" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="mailto:xuanheng.huang@phd.unibocconi.it"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
             </footer>
