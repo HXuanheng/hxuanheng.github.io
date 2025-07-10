@@ -97,7 +97,7 @@ ul {
 
 /* Header and Top Navigation */
 .main-header {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
@@ -213,7 +213,6 @@ ul {
     margin-left: 0;
     width: 100%;
     padding: 2rem 0;
-    margin-top: 80px; /* Account for fixed header */
 }
 
 /* Profile Header Section */
