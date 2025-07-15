@@ -1,11 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1751924315.40376 "c:/Users/XuanH/Dropbox/hxuanheng.github.io/cv/cv.tex" "cv.pdf" "cv" 1751924317.03626 0
-  "c:/Users/XuanH/Dropbox/hxuanheng.github.io/cv/cv.tex" 1751924314 7927 95518f4726b0a5b009865cdcc089c326 ""
+["pdflatex"] 1752616247.85576 "c:/Users/XuanH/Dropbox/hxuanheng.github.io/cv/cv.tex" "cv.pdf" "cv" 1752616251.70959 0
+  "c:/Users/XuanH/Dropbox/hxuanheng.github.io/cv/cv.tex" 1752616245 7962 5381180d903df5b85d32123a671ab83a ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cfr-lm/t1-clm.enc" 1749918034 3104 9d65bab9b21e9c884fbb5abaff2d4360 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1749918299 2971 def0b6c1f0b107b3b936def894055589 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/fontawesome5/fa5brands0.enc" 1749920167 2920 d63721872b8c77041b88e51b8f7c291d ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free1.enc" 1749920167 3042 0e2b14b9be7d01075a4c4591d5d1781b ""
-  "c:/texlive/2025/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free2.enc" 1749920167 2906 e48aa7c95dea478a2e011bcb4f7878c9 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc" 1749921995 2840 216e6e45ad352e2456e1149f28885bee ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1749920192 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/eccc1095.tfm" 1749919357 3072 1b1df026a15993ee98d265b49cf8d5f2 ""
@@ -26,7 +25,6 @@
   "c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1749918277 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/public/fontawesome5/fa5brands0.tfm" 1749920167 1380 a61d7c2860b3f6d342213a6b9b229e9e ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/public/fontawesome5/fa5free1solid.tfm" 1749920167 1316 1c2ee668ea88be9bd4f39690662cc344 ""
-  "c:/texlive/2025/texmf-dist/fonts/tfm/public/fontawesome5/fa5free2solid.tfm" 1749920167 1340 b21002f38a477f345fa9dc96a5613e2b ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm" 1749921702 520 82a3d37183f34b6eb363a161dfc002c2 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/public/latex-fonts/lasy5.tfm" 1749921702 520 d082ac03a1087bc1ec2a06e24a9f68c0 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm" 1749921702 520 4889cce2180234b97cad636b6039c722 ""
@@ -153,7 +151,6 @@
   "c:/texlive/2025/texmf-dist/tex/latex/fontawesome5/fontawesome5.sty" 1749920167 8112 16dbb19fca3f2df864fea49874356f35 ""
   "c:/texlive/2025/texmf-dist/tex/latex/fontawesome5/ufontawesomebrands0.fd" 1749920167 1206 b35c804e364d46e802702be118632c48 ""
   "c:/texlive/2025/texmf-dist/tex/latex/fontawesome5/ufontawesomefree1.fd" 1749920167 980 1b42613a5245ed252c04030af746d737 ""
-  "c:/texlive/2025/texmf-dist/tex/latex/fontawesome5/ufontawesomefree2.fd" 1749920167 980 38ce61da47d1ba16e56a2e312b56a515 ""
   "c:/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty" 1749920477 41601 9cf6c5257b1bc7af01a58859749dd37a ""
   "c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1749920726 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
   "c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1749920726 1224 978390e9c2234eab29404bc21b268d1e ""
@@ -240,9 +237,9 @@
   "c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1749927783 5477489 bc415fc94acbbcba2cab2dedd5a2cfaa ""
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1749928098 2246243 99cb4a5bdc017233562cb638e73833cb ""
   "c:/texlive/2025/texmf.cnf" 1749927733 713 e69b156964470283e0530f5060668171 ""
-  "cv.aux" 1751924316 742 c1e9ad4b897ea3f11b09bf534937f193 "pdflatex"
-  "cv.out" 1751924316 534 addbcfcfcf7fa646e7a03b2b89712916 "pdflatex"
-  "cv.tex" 1751924314 7927 95518f4726b0a5b009865cdcc089c326 ""
+  "cv.aux" 1752616251 742 c1e9ad4b897ea3f11b09bf534937f193 "pdflatex"
+  "cv.out" 1752616251 534 addbcfcfcf7fa646e7a03b2b89712916 "pdflatex"
+  "cv.tex" 1752616245 7962 5381180d903df5b85d32123a671ab83a ""
   (generated)
   "cv.aux"
   "cv.log"
