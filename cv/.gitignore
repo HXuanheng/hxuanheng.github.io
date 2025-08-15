@@ -1,0 +1,9 @@
+# Ignore all files in cv folder
+*
+
+# But keep .tex and .pdf files
+!*.tex
+!*.pdf
+
+# Also keep the .gitignore file itself
+!.gitignore
