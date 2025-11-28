@@ -82,12 +82,22 @@
 }
 
 \newcommand{\resumeSubheading}[4]{
-\vspace{0.5mm}\item
-    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+\vspace{2mm}\item
+    \begin{tabularx}{\linewidth}{L r}
         \textbf{#1} & \textit{\footnotesize{#4}} \\
         \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
-    \end{tabular*}
-    \vspace{-2.4mm}
+    \end{tabularx}
+    \vspace{-2mm}
+}
+
+\newcommand{\resumeSubheadingNumbered}[4]{
+\stepcounter{papercounter}
+\vspace{2mm}\item
+    \begin{tabularx}{\linewidth}{L r}
+        \arabic{papercounter}. \textbf{#1} & \textit{\footnotesize{#4}} \\
+        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
+    \end{tabularx}
+    \vspace{-2mm}
 }
 
 \newcommand{\resumeProject}[4]{
@@ -102,13 +112,17 @@
 \newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
 
 % \renewcommand{\labelitemii}{$\circ$}
-\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\labelitemi}{}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=0mm]}
+\newcounter{papercounter}
+\newcommand{\resumeNumberedListStart}{\begin{itemize}[leftmargin=*,labelsep=0mm]
+\setcounter{papercounter}{0}}
 \newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.7mm, rightmargin=2ex]}
 \newcommand{\resumeItemListStart}{\begin{justify}\begin{itemize}[leftmargin=3ex, rightmargin=2ex, noitemsep,labelsep=1.2mm,itemsep=0mm]\small}
 
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2mm}}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-3mm}}
+\newcommand{\resumeNumberedListEnd}{\end{itemize}\vspace{-3mm}}
 \newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\end{justify}\vspace{-2mm}}
 \newcommand{\cvsection}[1]{%
@@ -160,15 +174,17 @@
 % }
 
 
-
-
 %-----------EDUCATION-----------
-\section{\textbf{Education}}
+\section{Education}
   \resumeSubHeadingListStart
     \resumeSubheading
       {Bocconi University}{Milan, Italy}
       {PhD in Economics \& Finance – Curriculum Accounting}{Sep 2021 - present}
-      \textit{\footnotesize Committee members: Peter Pope, Carlo Favero \& Sohnke Bartram}
+      % \textit{\footnotesize Committee members: Peter Pope, Carlo Favero \& Sohnke Bartram}
+      \textit{\footnotesize Advisor: Peter Pope}
+
+      \vspace{2.0mm}
+
     \resumeSubheading
       {Columbia Business School}{New York, United States}
       {Visiting Scholar}{Jan 2024 - Dec 2024}
@@ -177,36 +193,118 @@
       {MSc in DES-ESS – Economic and Social Sciences}{Sep 2018 - Dec 2020}
     \resumeSubheading
       {Washington University in St. Louis}{Missouri, United States}
-      {Exchange Program}{Jan 2018 – May 2018}
+      {Exchange Program, BSc}{Jan 2018 – May 2018}
     \resumeSubheading
       {Bocconi University}{Milan, Italy}
       {BSc in CLES-BESS – Economic and Social Sciences}{Sep 2015 - Sep 2018}
   \resumeSubHeadingListEnd
-\vspace{-5.5mm}
-%
 
+%-----------PROJECTS-----------------
+\section{Working Papers}
+  \resumeNumberedListStart
+    \resumeSubheadingNumbered
+      {Accounting-based Monitoring in Supply Chains (solo-authored)}{}
+      {}{}
 
+      \vspace{-2.0mm}
+
+    \resumeSubheadingNumbered
+      {Are Disclosed Merger Synergies Realized? (with Atif Ellahie, Irem Tuna \& Roberto Vincenzi)}{}
+      {}{} 
+
+      \vspace{-2.0mm}
+
+    \resumeSubheadingNumbered
+      {Leverage and Operating Risk in Asset Pricing: An Accounting Perspective (with Peter Pope)}{}
+      {}{} 
+
+      \vspace{-2.0mm}
+
+  \resumeNumberedListEnd
+
+\section{Works in Progress}
+  \resumeNumberedListStart
+    \resumeSubheadingNumbered
+      {Characteristic-based Factors and exposure to macroeconomic risks  (with Peter Pope)}{}
+      {}{}  
+      
+      \vspace{-2.0mm}
+
+  \resumeNumberedListEnd
+
+%-----------TEACHING EXPERIENCE-----------------
+\section{Teaching Experience}
+  \resumeSubHeadingListStart
+    \vspace{2mm}
+    \item \textbf{Bocconi University} \\
+    \vspace{1mm}
+    \noindent\textit{\footnotesize{Lecturer}}
+    \vspace{-1mm}
+    \begin{itemize}[leftmargin=3ex,labelsep=1.2mm,topsep=0mm]
+      \renewcommand{\labelitemi}{-}
+      \item \begin{tabularx}{\linewidth}{L r}
+        \footnotesize{Financial Statement Analysis for Company Valuation (Instructor: Claudia Imperatore)} & \textit{\footnotesize{2026 (Scheduled)}}
+      \end{tabularx}
+    \end{itemize}
+
+    \vspace{1mm}
+    
+    \noindent\textit{\footnotesize{Teaching Assistant}}
+    \vspace{-1mm}
+    \begin{itemize}[leftmargin=3ex,labelsep=1.2mm]
+      \renewcommand{\labelitemi}{-}
+      \item \begin{tabularx}{\linewidth}{L r}
+        \footnotesize{Financial Statement Analysis for Value Investing (Book, Instructors: Stephen Penman \& Peter Pope)} & \textit{\footnotesize{2023 - present}} \\
+      \end{tabularx}
+      \item \begin{tabularx}{\linewidth}{L r}
+        \footnotesize{Accounting and Financial Statement Analysis (Instructor: Antonio Marra)} & \textit{\footnotesize{2023}}
+      \end{tabularx}
+      \item \begin{tabularx}{\linewidth}{L r}
+        \footnotesize{Accounting for Value (Instructor: Lauren Vollon)} & \textit{\footnotesize{2023}}
+      \end{tabularx}
+    \end{itemize}
+\resumeSubHeadingListEnd
 
 %-----------EXPERIENCE-----------------
-\section{\textbf{Experience}}
+\section{Experience}
   \resumeSubHeadingListStart
     \resumeSubheading
       {Bocconi University, Department of Accounting}{Milan, Italy}
-      {Research and Teaching Assistant}{Jan 2021 - present}
-      \vspace{-2.0mm}
-      \resumeItemListStart
-    \item {Courses: accounting and financial statement analysis (2023); accounting for value (2023)}
-    \resumeItemListEnd
+      {Research and Teaching Assistant}{Aug 2021 - present}
     
-    \vspace{-2.0mm}
-
+    \resumeSubheading
+      {Bocconi University, Department of Accounting}{Milan, Italy}
+      {Predoctoral Fellow}{Jan 2021 - Aug 2021} 
     \resumeSubheading
       {Bocconi University, Department of Decision Sciences}{Milan, Italy}
       {Research Assistant}{Dec 2020} 
-    
-      
   \resumeSubHeadingListEnd
-\vspace{-5.5mm}
+
+%-----------CONFERENCES-----------------
+\section{Conferences}
+\vspace{1mm}
+{\footnotesize
+\begin{tabular*}{\textwidth}[t]{l@{\hspace{1em}}p{0.9\textwidth}}
+  \textbf{2026} & Hawaii Accounting Research Conference (\textit{Presenter and Discussant, scheduled}) \\
+  \\[-0.2ex]
+  \textbf{2025} & EAA Annual Conference (\textit{Presenter}); Journal of Business Finance and Accounting Conference; Bocconi Accounting Symposium; Padua Bolzano Early Researcher Consortium (\textit{Presenter}); UC3M International Accounting Symposium (\textit{Presenter}); Contemporary Accounting Research Conference \\
+  \\[-0.2ex]
+  \textbf{2024} & Four-School Accounting Research Conference; Columbia Management Accounting Conference; Columbia Accounting Theory Conference; Rutgers Accounting Conference; Bocconi Accounting Symposium; Burton Accounting Conference; Columbia University (\textit{Presenter})\\
+  \\[-0.2ex]
+  \textbf{2023} & EAA Annual Conference; Milan PhD Workshop (\textit{Presenter}); Bocconi Accounting Symposium \\
+  \\[-0.2ex]
+  \textbf{2022} & Journal of Business Finance and Accounting Conference \\
+\end{tabular*}
+
+}
+\vspace{-1mm}
+
+%-----------SERVICE-----------------
+\section{Service}
+  \resumeSubHeadingListStart
+    \vspace{2mm}
+    \item \footnotesize{Ad Hoc Reviewer for \textit{The Journal of Business Finance \& Accounting} (JBFA)}
+  \resumeSubHeadingListEnd
 
 % %-----------Technical skills-----------------
 % \section{\textbf{Language and IT Skills}}
@@ -217,61 +315,6 @@
 %     }}
 %  \end{itemize}
 %  \vspace{-16pt}
-
-
-%-----------PROJECTS-----------------
-\section{Working Papers}
-\resumeSubHeadingListStart
-
-    \resumeSubheading
-      {Leverage and Operating Risk in Asset Pricing: An Accounting Perspective (with Peter Pope)}{}
-      {}{} 
-
-\vspace{-2.0mm}
-
-    \resumeSubheading
-      {Are Disclosed Merger Synergies Realized? (with Atif Ellahie, Irem Tuna \& Roberto Vincenzi)}{}
-      {}{} 
-      
-  \resumeSubHeadingListEnd
-\vspace{-5.5mm}
-
-\section{Works in Progress}
-\resumeSubHeadingListStart
-
-    \resumeSubheading
-      {Characteristic-based Factors and exposure to macroeconomic risks  (with Peter Pope)}{}
-      {}{} 
-
-\vspace{-2.0mm}
-
-\resumeSubheading
-      {Accounting-based Monitoring in Supply Chains (solo-authored)}{}
-      {}{} 
-      
-  \resumeSubHeadingListEnd
-\vspace{-5.5mm}
-
-\section{\textbf{Presentations}}
-  \resumeSubHeadingListStart
-
-\resumeSubheading
-      {EAA (Rome), Early Researcher Consortium (Naples), Accounting Symposium (Madrid)}{}
-      {}{2025}
-
-\vspace{-2.0mm}
-
-  \resumeSubheading
-      {Columbia University}{}
-      {}{2024}
-
-\vspace{-2.0mm}
-
-    \resumeSubheading
-      {Milan PhD Workshop}{}
-      {}{2023}
-  \resumeSubHeadingListEnd
-\vspace{-5.5mm}
 
 %-------------------------------------------
 
