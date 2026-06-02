@@ -370,7 +370,7 @@ ul {
 }
 
 .publication-title {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
     color: var(--text-light);
     font-weight: 600;
@@ -378,6 +378,14 @@ ul {
 
 .dark-mode .publication-title {
     color: var(--text-dark);
+}
+
+.publication-title a {
+    color: inherit;
+}
+
+.publication-title a:hover {
+    color: var(--primary-color);
 }
 
 .publication-authors {
