@@ -847,10 +847,10 @@ ul {
 }
 
 .paper-hero {
-    max-width: 760px;
-    margin: 1rem auto 0;
+    max-width: 820px;
+    margin: 1rem 0 0;
     padding: 1.5rem 0 2.5rem;
-    text-align: center;
+    text-align: left;
     border-bottom: 1px solid var(--border-light);
 }
 
@@ -859,7 +859,7 @@ ul {
 }
 
 .paper-hero .publication-badges {
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 1.25rem;
 }
 
@@ -867,8 +867,7 @@ ul {
     font-size: 2.1rem;
     font-weight: 700;
     line-height: 1.25;
-    margin: 0 auto 1rem;
-    max-width: 22ch;
+    margin: 0 0 1rem;
 }
 
 .paper-authors {
@@ -894,14 +893,18 @@ ul {
 .paper-actions {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.75rem;
     margin-top: 1.75rem;
 }
 
+.paper-actions:empty {
+    margin-top: 0;
+}
+
 .paper-abstract {
-    max-width: 760px;
-    margin: 2.5rem auto 0;
+    max-width: 820px;
+    margin: 2.5rem 0 0;
     padding: 1.5rem 1.75rem;
     background-color: #f7f7fb;
     border-left: 3px solid var(--primary-color);
@@ -932,8 +935,8 @@ ul {
 }
 
 .paper-keywords {
-    max-width: 760px;
-    margin: 1.5rem auto 0;
+    max-width: 820px;
+    margin: 1.5rem 0 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
