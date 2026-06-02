@@ -959,6 +959,12 @@ ul {
     color: var(--text-muted-dark);
 }
 
+/* Tighter keyword spacing when used inside a card (research page) */
+.publication-card .paper-keywords,
+.project-card .paper-keywords {
+    margin-top: 0.75rem;
+}
+
 .paper-keywords-label {
     font-weight: 600;
     color: var(--text-light);
