@@ -825,6 +825,137 @@ ul {
     background-color: var(--border-dark);
 }
 
+/* Paper Landing Pages */
+.paper-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    color: var(--text-muted-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.paper-back:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.dark-mode .paper-back {
+    color: var(--text-muted-dark);
+}
+
+.paper-hero {
+    max-width: 760px;
+    margin: 1rem auto 0;
+    padding: 1.5rem 0 2.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.dark-mode .paper-hero {
+    border-color: var(--border-dark);
+}
+
+.paper-hero .publication-badges {
+    justify-content: center;
+    margin-bottom: 1.25rem;
+}
+
+.paper-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 auto 1rem;
+    max-width: 22ch;
+}
+
+.paper-authors {
+    font-size: 1.05rem;
+    color: var(--text-muted-light);
+    margin-bottom: 0.5rem;
+}
+
+.dark-mode .paper-authors {
+    color: var(--text-muted-dark);
+}
+
+.paper-authors a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.paper-authors a:hover {
+    color: var(--primary-color);
+}
+
+.paper-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+}
+
+.paper-abstract {
+    max-width: 760px;
+    margin: 2.5rem auto 0;
+    padding: 1.5rem 1.75rem;
+    background-color: #f7f7fb;
+    border-left: 3px solid var(--primary-color);
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.dark-mode .paper-abstract {
+    background-color: var(--card-bg-dark);
+    border-left-color: var(--secondary-color);
+}
+
+.paper-abstract h2 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.dark-mode .paper-abstract h2 {
+    color: var(--accent-color);
+}
+
+.paper-abstract p {
+    margin: 0;
+    line-height: 1.8;
+}
+
+.paper-keywords {
+    max-width: 760px;
+    margin: 1.5rem auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted-light);
+}
+
+.dark-mode .paper-keywords {
+    color: var(--text-muted-dark);
+}
+
+@media (max-width: 480px) {
+    .paper-title {
+        font-size: 1.6rem;
+    }
+
+    .paper-abstract {
+        padding: 1.25rem 1.25rem;
+    }
+}
+
 /* Section Styles */
 .section {
     margin-bottom: 4rem;
