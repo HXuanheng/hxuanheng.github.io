@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (!expanded) {
                     if (icon) icon.className = 'fas fa-minus-circle';
-                    if (span) span.textContent = 'Abstract';
+                    if (span) span.textContent = 'Hide Abstract';
                 } else {
                     if (icon) icon.className = 'fas fa-plus-circle';
-                    if (span) span.textContent = 'Abstract';
+                    if (span) span.textContent = 'Show Abstract';
                 }
             }
         });
@@ -113,28 +113,4 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize mobile navigation
     createMobileNavToggle();
-    
-    // Toggle abstract function for research page
-    window.toggleAbstract = function(id) {
-        const abstractDiv = document.getElementById(id);
-        const toggleButton = document.querySelector(`[onclick="toggleAbstract('${id}')"]`);
-        
-        if (abstractDiv && toggleButton) {
-            const isHidden = abstractDiv.style.display === 'none';
-            abstractDiv.style.display = isHidden ? 'block' : 'none';
-            
-            const icon = toggleButton.querySelector('i');
-            const text = toggleButton.childNodes[toggleButton.childNodes.length - 1];
-            
-            if (isHidden) {
-                icon.className = 'fas fa-minus';
-                text.textContent = 'Abstract';
-                toggleButton.setAttribute('aria-expanded', 'true');
-            } else {
-                icon.className = 'fas fa-plus';
-                text.textContent = 'Abstract';
-                toggleButton.setAttribute('aria-expanded', 'false');
-            }
-        }
-    }
 });

@@ -1,6 +1,10 @@
 # Allow all standard search engines
 User-agent: *
 Allow: /
+# Keep internal application drafts (cover letters, references, checklists) out of search indexes.
+# NOTE: this only deters compliant crawlers — the files remain publicly reachable. Remove them
+# from the repo if they must be private.
+Disallow: /documents/
 
 # AI / LLM crawlers — explicitly allowed for discoverability
 User-agent: GPTBot

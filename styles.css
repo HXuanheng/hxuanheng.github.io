@@ -704,6 +704,27 @@ ul {
     }
 }
 
+/* Extra-small phones: stack hero buttons full width, ease section padding */
+@media (max-width: 380px) {
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .section {
+        padding: 2rem 0;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+}
+
 /* Footer */
 .footer {
     border-top: 1px solid var(--border-light);
@@ -848,15 +869,6 @@ ul {
     box-shadow: var(--card-shadow-dark);
 }
 
-/* .publication-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.dark-mode .publication-card:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-} */
-
 .publication-content {
     padding: 1.5rem;
 }
@@ -874,12 +886,27 @@ ul {
     font-size: 0.75rem;
     font-weight: 600;
     border-radius: 9999px;
-    background-color: var(--accent-color);
-    color: var(--text-light);
+    background-color: var(--primary-color);
+    color: #ffffff;
 }
 
 .dark-mode .badge {
-    color: var(--card-bg-dark);
+    background-color: var(--secondary-color);
+    color: #ffffff;
+}
+
+/* Status badge: muted, outlined variant for paper status */
+.badge-status {
+    background-color: transparent;
+    color: var(--text-muted-light);
+    border: 1px solid var(--border-light);
+    font-weight: 500;
+}
+
+.dark-mode .badge-status {
+    background-color: transparent;
+    color: var(--text-muted-dark);
+    border-color: var(--border-dark);
 }
 
 /* Projects Grid */
@@ -906,15 +933,6 @@ ul {
     border-color: var(--border-dark);
     box-shadow: var(--card-shadow-dark);
 }
-
-/* .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.dark-mode .project-card:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-} */
 
 .project-content {
     padding: 1.5rem;
@@ -965,8 +983,8 @@ ul {
 }
 
 .abstract-toggle:hover {
-    color: var(--accent-color);
-    text-decoration: none;
+    color: var(--secondary-color);
+    text-decoration: underline;
 }
 
 .abstract-toggle i {
