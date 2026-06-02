@@ -7,3 +7,7 @@ documents/
 # References page — hidden until referees give consent. Re-enable by removing
 # this line and restoring the nav links (see git history of nav edits).
 references.html
+
+# Teaching page — hidden for now. Re-enable by removing this line and restoring
+# the nav links + sitemap entry.
+teaching.html
