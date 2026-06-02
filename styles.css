@@ -980,6 +980,19 @@ ul {
     color: var(--text-muted-dark);
 }
 
+/* Review-pipeline status (e.g. "Under review at …", "R&R at …") — distinct
+   from the type eyebrow; sits in the metadata block after the authors */
+.paper-status {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--text-muted-light);
+    margin: 0.3rem 0 0;
+}
+
+.dark-mode .paper-status {
+    color: var(--text-muted-dark);
+}
+
 /* Tighter keyword spacing when used inside a card (research page) */
 .publication-card .paper-keywords,
 .project-card .paper-keywords {
