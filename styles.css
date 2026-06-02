@@ -872,16 +872,15 @@ ul {
 }
 
 .paper-eyebrow {
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--primary-color);
-    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--text-muted-light);
+    margin-bottom: 0.6rem;
 }
 
 .dark-mode .paper-eyebrow {
-    color: var(--accent-color);
+    color: var(--text-muted-dark);
 }
 
 .paper-title {
