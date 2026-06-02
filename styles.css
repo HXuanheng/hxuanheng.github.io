@@ -883,6 +883,20 @@ ul {
     color: var(--text-muted-dark);
 }
 
+/* Job Market Paper gets a more prominent label than ordinary status */
+.paper-eyebrow.is-jmp {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+
+.dark-mode .paper-eyebrow.is-jmp {
+    color: var(--accent-color);
+}
+
 .paper-title {
     font-size: 2.1rem;
     font-weight: 700;
