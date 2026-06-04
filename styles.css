@@ -388,29 +388,29 @@ ul {
     color: var(--primary-color);
 }
 
-.publication-authors {
+.title-authors {
     font-size: 1rem;
+    font-weight: 400;
     color: var(--text-muted-light);
-    margin-bottom: 1rem;
 }
 
-.dark-mode .publication-authors {
+.dark-mode .title-authors {
     color: var(--text-muted-dark);
 }
 
-.publication-authors a {
+.title-authors a {
     color: inherit;
     text-decoration: none;
     border-bottom: 1px dotted var(--text-muted-light);
     transition: color 0.2s, border-color 0.2s;
 }
 
-.publication-authors a:hover {
+.title-authors a:hover {
     color: var(--primary-color);
     border-color: var(--primary-color);
 }
 
-.dark-mode .publication-authors a {
+.dark-mode .title-authors a {
     border-bottom: 1px dotted var(--text-muted-dark);
 }
 
