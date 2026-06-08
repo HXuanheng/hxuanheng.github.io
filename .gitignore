@@ -4,6 +4,9 @@
 # Job-application drafts (cover letters, references, statements, checklists)
 documents/
 
+# Job applications — tracker + packets, private, Dropbox-only
+jobmarket/
+
 # References page — hidden until referees give consent. Re-enable by removing
 # this line and restoring the nav links (see git history of nav edits).
 references.html
