@@ -23,29 +23,40 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
+
     // Dark mode toggle
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
+
+    // Swap theme-aware figures (light/dark SVG variants) to match the theme
+    const applyFigureTheme = (isDark) => {
+        const variant = isDark ? 'dark' : 'light';
+        document.querySelectorAll('img.theme-fig').forEach(img => {
+            img.src = img.dataset.figBase + '-' + variant + '.svg';
+        });
+    };
+
     // Check for saved theme preference or use system preference
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark' || (!savedTheme && prefersDarkMode)) {
         body.classList.add('dark-mode');
         themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
     }
-    
+    applyFigureTheme(body.classList.contains('dark-mode'));
+
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
-        
-        if (body.classList.contains('dark-mode')) {
+        const isDark = body.classList.contains('dark-mode');
+
+        if (isDark) {
             localStorage.setItem('theme', 'dark');
             themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
         } else {
             localStorage.setItem('theme', 'light');
             themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
         }
+        applyFigureTheme(isDark);
     });
     
     // Mobile navigation toggle for new layout
