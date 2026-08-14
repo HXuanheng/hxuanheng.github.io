@@ -141,202 +141,60 @@
 %-------------------------------------------
 %%%%%%  CV STARTS HERE  %%%%%%%%%%%
 %%%%%% DEFINE ELEMENTS HERE %%%%%%%
-\newcommand{\name}{Xuanheng Huang} % Your Name
-\newcommand{\university}{Bocconi University} % Your Program
-\newcommand{\department}{Department of Accounting} % Department
-\newcommand{\location}{Milan, 20136, Italy} % Location
-\newcommand{\phone}{324 7763318} % Your Phone Number
-\newcommand{\emaila}{huangxuanheng@gmail.com} %Email 1
-\newcommand{\emailb}{xuanheng.huang@phd.unibocconi.it} %Email 2
+\input{shared/contact}
+\input{shared/papers}
 
 
 
 
 \begin{document}
 \fontfamily{cmr}\selectfont
-%----------HEADING-----------------
+\input{shared/header}
+
+\input{shared/interests}
 
 
-% \parbox{2.35cm}{%
-% \includegraphics[width=2cm,clip]{iiitgLogo.png}
-% }
-\parbox{\dimexpr\linewidth\relax}{
-\begin{tabularx}{\linewidth}{L r} \\
-  % {\raisebox{0.0\height}{\footnotesize \faPhone}\ +39 \phone}\\
-  \textbf{\Large \name}   & \href{mailto:\emaila}{\raisebox{0.0\height}{\footnotesize \faEnvelope}\ {\emaila}} \\
-  {\university}           &  \href{mailto:\emailb}{\raisebox{0.0\height}{\footnotesize \faEnvelope}\ {\emailb}}\\
-  \department             &  \href{https://hxuanheng.github.io/}{\raisebox{0.0\height}{\footnotesize \faGlobe}\ {hxuanheng.github.io}} \\
-  {\location}             & \href{https://www.linkedin.com/in/xuanheng-huang-044197ba/}{\raisebox{0.0\height}{\footnotesize \faLinkedin}\ {LinkedIn Profile}}
-\end{tabularx}
-}
-% \parbox{3.0cm}{%
-% \flushright \includegraphics[width=2cm,clip]{nitp_logo.png}
-% }
+\input{shared/education}
 
-%-----------RESEARCH FIELD AND METHODS-----------------
-\section{Research Interests and Methods}
-  \resumeSubHeadingListStart
-    \vspace{2mm}
-    \item \textbf{Research Interests:} M\&A; Supply Chain; Valuation
-    \item \textbf{Research Methods:} Empirical archival (primary); AI; analytical
-  \resumeSubHeadingListEnd
-
-
-%-----------EDUCATION-----------
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Bocconi University}{Milan, Italy}
-      {PhD in Economics \& Finance – Curriculum Accounting}{Sep 2021 -- present}
-      \textit{\footnotesize Advisor: Peter Pope}
-
-      \vspace{2.0mm}
-
-    \resumeSubheading
-      {Columbia Business School}{New York, United States}
-      {Visiting Scholar}{Jan 2024 -- Dec 2024}
-      \textit{\footnotesize Sponsor: Stephen Penman}
-      
-      \vspace{2.0mm}
-
-    \resumeSubheading
-      {Bocconi University}{Milan, Italy}
-      {MSc in DES-ESS – Economic and Social Sciences}{Sep 2018 -- Dec 2020}
-    \resumeSubheading
-      {Washington University in St. Louis}{Missouri, United States}
-      {Exchange Program, BSc}{Jan 2018 – May 2018}
-    \resumeSubheading
-      {Bocconi University}{Milan, Italy}
-      {BSc in CLES-BESS – Economic and Social Sciences}{Sep 2015 -- Sep 2018}
-  \resumeSubHeadingListEnd
-
-%-----------PROJECTS-----------------
+%-----------WORKING PAPERS-----------------
+% Content comes from shared/papers.tex; only the layout is local. The website CV shows a
+% single list with abstracts suppressed.
 \section{Working Papers}
 \vspace{1mm}
 \begin{enumerate}[leftmargin=*,labelsep=0.5em]
-  \item \textbf{Accounting-Based Governance in Supplier--Customer Relationships} (solo-authored)\\[0.5ex]
+  \item \textbf{\jmpTitle} \jmpAuthors\\[0.5ex]
     {\footnotesize
-      % Accounting mitigates bilateral information asymmetry in supplier--customer relationships arising from cost opacity or payment risk. Using a large language model (LLM), I identify provisions governing the production, dissemination, and verification of accounting information in material supply agreements filed with the SEC. These provisions appear in 60.5\% of the agreements, with customers monitoring suppliers more often than in the opposite direction. Supplier-targeted monitoring is more likely under cost-plus pricing, whereas customer-targeted monitoring is more likely when customers are financially weaker. Monitoring in both directions is more likely when monitored parties have stronger financial reporting quality. After contract initiation, monitored suppliers exhibit higher subsequent sales, while customers holding information and verification rights over suppliers exhibit both higher sales and lower operating-cost ratios. The effects are stronger when the monitored party has lower pre-signing financial reporting quality. Customer improvements are greater under cost-plus pricing, whereas supplier improvements are greater under fixed-price contracts. Overall, the findings suggest that the direction of accounting information flows reflects distinct economic incentives and predicts subsequent firm performance. \\[0.4ex]
-      Presenting and gathering feedback.\\[1.3ex]
-      \textit{Presented at:} 16th Financial Reporting Workshop; EAA Annual Conferences; Bocconi University; UC3M International Accounting Symposium; Padua Bolzano Early Researcher Consortium.}\par
+      % \jmpAbstract \\[0.4ex]
+      \jmpStatus\\[1.3ex]
+      \textit{Presented at:} \jmpPresented}\par
     \vspace{1.2ex}
 
-  \item \textbf{Are Merger Synergy Disclosures Credible?} (with \href{https://atifellahie.com/}{Atif Ellahie}, \href{https://www.london.edu/faculty-and-research/faculty-profiles/t/tuna-i}{Irem Tuna} \& \href{https://faculty.unibocconi.eu/robertovincenzi/}{Roberto Vincenzi})\\[0.5ex]
+  \item \textbf{\synTitle} \synAuthors\\[0.5ex]
     {\footnotesize
-      % We examine the credibility and consequences of synergy disclosures in over 12,000 U.S. merger and acquisition (M\&A) transactions announced between 2004 and 2021. Using press releases and conference call transcripts, we identify both qualitative and quantitative statements about expected synergies. We find that these disclosures are more common in larger deals, when more stock-financing is used, and when the targets are publicly listed. Analyst coverage, institutional ownership, and acquirers’ forecasting experience also help explain variation in disclosure practices. Disclosing firms earn higher announcement returns, particularly when disclosures are more detailed or include numeric estimates. However, these synergy expectations are often not fully realized. More intensive disclosures are associated with lower post-merger operating performance, and numeric estimates predict more frequent and larger goodwill impairments. Our findings suggest that while synergy disclosures are positively received by investors, they tend to be overoptimistic, raising concerns about the credibility of forward-looking statements in the M\&A setting.\\[0.4ex]
-      Accepted at the 2026 \textit{Review of Accounting Studies} Conference.\\[1.3ex]
-      \textit{Presented at:} European Accounting Symposium for Young Scholars; EAA Annual Conference; Lancaster University Accounting Research \& Policy Symposium; ESSEC Financial Accounting Symposium; Hawaii Accounting Research Conference; University of Manchester; RCF-ECGI Corporate Finance and Governance Conference; Bocconi University; Review of Accounting Studies Conference (scheduled).}\par
+      % \synAbstract\\[0.4ex]
+      \synStatus\\[1.3ex]
+      \textit{Presented at:} \synPresented}\par
     \vspace{1.2ex}
 
-  \item \textbf{Leverage and Operating Risk in Asset Pricing: An Accounting Perspective} (with \href{https://www.lse.ac.uk/accounting/people/peter-pope}{Peter Pope})\\[0.5ex]
+  \item \textbf{\levTitle} \levAuthors\\[0.5ex]
     {\footnotesize
-      % Separating operating from financial effects helps capture firm fundamentals, as these two types of risk tend to offset each other in the cross-section. We revisit the Fama-French six-factor model (FF6; 2018) by recomputing factors using operating characteristics while separately accounting for financial leverage. Our six-factor model subsumes the original FF6 model and outperforms the q-factor model (HXZ; 2015) in explaining a large set of documented anomalies. The improvement in capturing operating risk primarily stems from using return on net operating assets and growth in net operating assets as measures of profitability and investment, respectively. The enterprise book-to-market ratio becomes redundant once we consider the other operating characteristics. Additionally, after we control for operating effects, leverage is positively associated with returns, as predicted by theory, suggesting a renewed role for a leverage factor in asset pricing.\\[0.4ex]
-      Presenting and gathering feedback.\\[1.3ex]
-      \textit{Presented at:} Lancaster University; EAA Annual Conference; Columbia Business School.}\par
+      % \levAbstract\\[0.4ex]
+      \levStatus\\[1.3ex]
+      \textit{Presented at:} \levPresented}\par
 \end{enumerate}
 
-\section{Works in Progress}
-\vspace{1mm}
-\begin{enumerate}[leftmargin=*,labelsep=0.5em]
-  \item \textbf{Firm Disclosure and M\&A} (with \href{https://atifellahie.com/}{Atif Ellahie}, \href{https://sites.google.com/view/eliaferracuti/home}{Elia Ferracuti} \& \href{https://eccles.utah.edu/team/stephen-stubben/}{Stephen Stubben})
-  \item \textbf{Characteristic-Based Factors and Exposure to Macroeconomic Risks} (with \href{https://www.lse.ac.uk/accounting/people/peter-pope}{Peter Pope})
-\end{enumerate}
+\input{shared/works_in_progress}
 
-%-----------TEACHING EXPERIENCE-----------------
-\section{Teaching Experience}
-  \resumeSubHeadingListStart
-    \vspace{2mm}
-    \item \textbf{Bocconi University} \\
-    \vspace{1mm}
-    \noindent\textit{\footnotesize{Lecturer}}
-    \vspace{-1mm}
-    \begin{itemize}[leftmargin=3ex,labelsep=1.2mm,topsep=0mm]
-      \renewcommand{\labelitemi}{-}
-      \item \begin{tabularx}{\linewidth}{L r}
-        \footnotesize{Financial Statement Analysis for Company Valuation (Topic: Valuation \& AI; Class Size: 97; Evaluation: 8.44/10)} & \textit{\footnotesize{2026}}
-      \end{tabularx}
-    \end{itemize}
+\input{shared/teaching}
 
-    \vspace{1mm}
-    
-    \noindent\textit{\footnotesize{Teaching Assistant}}
-    \vspace{-1mm}
-    \begin{itemize}[leftmargin=3ex,labelsep=1.2mm]
-      \renewcommand{\labelitemi}{-}
-      \item \begin{tabularx}{\linewidth}{L r}
-        \footnotesize{Accounting and Financial Statement Analysis (Instructor: Antonio Marra)} & \textit{\footnotesize{2023}}
-      \end{tabularx}
-      \item \begin{tabularx}{\linewidth}{L r}
-        \footnotesize{Accounting for Value (Instructor: Lauren Vollon)} & \textit{\footnotesize{2023}}
-      \end{tabularx}
-    \end{itemize}
+\input{shared/experience}
 
-    \vspace{1mm}
+\input{shared/funding}
 
-    \noindent\textit{\footnotesize{Textbook Contribution}}
-    \vspace{-1mm}
-    \begin{itemize}[leftmargin=3ex,labelsep=1.2mm]
-      \renewcommand{\labelitemi}{-}
-      \item \begin{tabularx}{\linewidth}{L r}
-        \footnotesize{Financial Statement Analysis for Value Investing (Authors: Stephen Penman \& Peter Pope)} & \textit{\footnotesize{2023 - present}}
-      \end{tabularx}
-    \end{itemize}
-\resumeSubHeadingListEnd
-
-%-----------EXPERIENCE-----------------
-\section{Experience}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Bocconi University, Department of Accounting}{Milan, Italy}
-      {Research and Teaching Assistant}{Aug 2021 -- present}
-    
-    \resumeSubheading
-      {Bocconi University, Department of Accounting}{Milan, Italy}
-      {Predoctoral Fellow}{Jan 2021 -- Aug 2021} 
-    \resumeSubheading
-      {Bocconi University, Department of Decision Sciences}{Milan, Italy}
-      {Research Assistant}{Dec 2020} 
-  \resumeSubHeadingListEnd
-
-%-----------EXTERNAL FUNDING-----------------
-\section{External Funding}
-\resumeSubHeadingListStart
-\resumeSubheading
-  {{\normalfont PhD Fellowship -- Bocconi University}}{}
-  {}{2021--2025}
-  \vspace{-6mm}
-\resumeSubheading
-  {{\normalfont Predoctoral Fellowship -- Bocconi University}}{}
-  {}{2021}
-\resumeSubHeadingListEnd
-
-\vspace{-4.0mm}
-
-%-----------CONFERENCES-----------------
-\section{Conferences}
-\vspace{1mm}
-{\footnotesize
-\begin{tabular*}{\textwidth}[t]{l@{\hspace{1em}}p{0.9\textwidth}}
-  \textbf{2026} & Bocconi Accounting Symposium; 16th Financial Reporting Workshop (\textit{Presenter and Discussant}); EAA Annual Conference (\textit{Presenter}); Journal of Business Finance and Accounting Conference; Lancaster University Accounting Research \& Policy Symposium  (\textit{Presenter}); Hawaii Accounting Research Conference (\textit{Presenter and Discussant}); Review of Accounting Studies Conference (\textit{scheduled}) \\
-  \\[-0.2ex]
-  \textbf{2025} & EAA Annual Conference (\textit{Presenter}); Journal of Business Finance and Accounting Conference; Bocconi Accounting Symposium; Padua Bolzano Early Researcher Consortium (\textit{Presenter}); UC3M International Accounting Symposium (\textit{Presenter}); Contemporary Accounting Research Conference \\
-  \\[-0.2ex]
-  \textbf{2024} & Four-School Accounting Research Conference; Columbia Management Accounting Conference; Columbia Accounting Theory Conference; Rutgers Accounting Conference; Bocconi Accounting Symposium; Burton Accounting Conference; Columbia Business School (\textit{Presenter})\\
-  \\[-0.2ex]
-  \textbf{2023} & EAA Annual Conference; Milan PhD Workshop (\textit{Presenter}); Bocconi Accounting Symposium \\
-  \\[-0.2ex]
-  \textbf{2022} & Journal of Business Finance and Accounting Conference \\
-\end{tabular*}
-
-}
+\input{shared/conferences}
 % \vspace{-1mm}
 
-%-----------SERVICE-----------------
-\section{Service}
-  \resumeSubHeadingListStart
-    \vspace{2mm}
-    \item \footnotesize{Ad Hoc Reviewer for \textit{The Journal of Business Finance \& Accounting} (JBFA)}
-  \resumeSubHeadingListEnd
+\input{shared/service}
 
 % %-----------Technical skills-----------------
 % \section{\textbf{Language and IT Skills}}

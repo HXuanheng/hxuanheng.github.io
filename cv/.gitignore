@@ -1,9 +1,17 @@
 # Ignore all files in cv folder
 *
 
+# But descend into subdirectories. Without this, `*` excludes shared/ itself and git
+# cannot re-include files under an excluded directory, so cv/shared/*.tex would be
+# silently untracked.
+!*/
+
 # But keep .tex and .pdf files
 !*.tex
 !*.pdf
+
+# Old CV versions stay local — this repo is published via GitHub Pages.
+archived/
 
 # Also keep the .gitignore file itself
 !.gitignore
