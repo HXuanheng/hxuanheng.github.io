@@ -66,13 +66,13 @@
   \vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
 
-% Subsection: small caps, no rule. Used for the blocks inside "Research".
-% Space above is deliberately larger than the gap between entries so each subhead
-% reads as a separator rather than as another body line. Bold is avoided on purpose:
-% T1/cmr has no bold small caps, so \bfseries here triggers a font substitution.
+% Subsection: bold small uppercase, no rule. Used for the blocks inside "Research".
+% Bold small caps is not an option -- T1/cmr has no b/sc shape and substitutes silently --
+% so the label reads as bold uppercase one size down, which outranks the bold entry
+% titles below it by weight without competing with the \large section head above.
 \titleformat{\subsection}{
-  \scshape\raggedright\normalsize
-}{}{0em}{}
+  \bfseries\raggedright\footnotesize
+}{}{0em}{\MakeUppercase}
 \titlespacing*{\subsection}{0pt}{4mm}{1.6mm}
 
 % Uniform spacing for the paper lists inside "Research".
@@ -175,7 +175,8 @@
 \input{shared/interests}
 
 \subsection{Job Market Paper}
-\begin{paperlist}
+% Single entry: numbering it "1." would imply a list that is missing its other items.
+\begin{paperlist}[label={},leftmargin=0pt]
   \item \textbf{\jmpTitle} \jmpAuthors\par
     % {\footnotesize \jmpAbstract}\par
 \end{paperlist}
