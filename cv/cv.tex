@@ -66,6 +66,12 @@
   \vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
 
+% Subsection: small caps, no rule. Used for the blocks inside "Research".
+\titleformat{\subsection}{
+  \scshape\raggedright\normalsize
+}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{2.5mm}{1mm}
+
 %-------------------------
 % Custom commands
 \newcommand{\resumeItem}[2]{
@@ -152,24 +158,26 @@
 \fontfamily{cmr}\selectfont
 \input{shared/header}
 
-\input{shared/interests}
-
-
 \input{shared/education}
 
-%-----------WORKING PAPERS-----------------
-% Content comes from shared/papers.tex; only the layout is local. The website CV shows a
-% single list with abstracts suppressed.
-\section{Working Papers}
+%-----------RESEARCH-----------------
+% Paper content comes from shared/papers.tex; only the layout is local. The website CV
+% suppresses abstracts.
+\section{Research}
 \vspace{1mm}
+\input{shared/interests}
+
+\subsection{Job Market Paper}
 \begin{enumerate}[leftmargin=*,labelsep=0.5em]
   \item \textbf{\jmpTitle} \jmpAuthors\\[0.5ex]
     {\footnotesize
       % \jmpAbstract \\[0.4ex]
       \jmpStatus\\[1.3ex]
       \textit{Presented at:} \jmpPresented}\par
-    \vspace{1.2ex}
+\end{enumerate}
 
+\subsection{Working Papers}
+\begin{enumerate}[leftmargin=*,labelsep=0.5em]
   \item \textbf{\synTitle} \synAuthors\\[0.5ex]
     {\footnotesize
       % \synAbstract\\[0.4ex]
@@ -184,6 +192,7 @@
       \textit{Presented at:} \levPresented}\par
 \end{enumerate}
 
+\subsection{Works in Progress}
 \input{shared/works_in_progress}
 
 \input{shared/teaching}
