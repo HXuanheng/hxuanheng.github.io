@@ -66,14 +66,15 @@
   \vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
 
-% Subsection: bold small uppercase, no rule. Used for the blocks inside "Research".
-% Bold small caps is not an option -- T1/cmr has no b/sc shape and substitutes silently --
-% so the label reads as bold uppercase one size down, which outranks the bold entry
-% titles below it by weight without competing with the \large section head above.
+% Subsection: small caps, no bold, no rule. Used for the blocks inside "Research".
+% Bold is deliberately absent -- it belongs to the entry titles, and a bold subhead
+% competed with them instead of leading them. Separation comes from whitespace:
+% the space above each subhead is larger than the gap between entries, so it reads
+% as a divider rather than as another line of the block above.
 \titleformat{\subsection}{
-  \bfseries\raggedright\footnotesize
-}{}{0em}{\MakeUppercase}
-\titlespacing*{\subsection}{0pt}{4mm}{1.6mm}
+  \scshape\raggedright\normalsize
+}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{5.5mm}{1.6mm}
 
 % Uniform spacing for the paper lists inside "Research".
 \newlist{paperlist}{enumerate}{1}
@@ -176,7 +177,8 @@
 
 \subsection{Job Market Paper}
 % Single entry: numbering it "1." would imply a list that is missing its other items.
-\begin{paperlist}[label={},leftmargin=0pt]
+% The phantom label keeps its title on the same indent as the numbered entries below.
+\begin{paperlist}[label={\hphantom{1.}}]
   \item \textbf{\jmpTitle} \jmpAuthors\par
     % {\footnotesize \jmpAbstract}\par
 \end{paperlist}
