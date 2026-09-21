@@ -67,10 +67,17 @@
 }{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
 
 % Subsection: small caps, no rule. Used for the blocks inside "Research".
+% Space above is deliberately larger than the gap between entries so each subhead
+% reads as a separator rather than as another body line. Bold is avoided on purpose:
+% T1/cmr has no bold small caps, so \bfseries here triggers a font substitution.
 \titleformat{\subsection}{
   \scshape\raggedright\normalsize
 }{}{0em}{}
-\titlespacing*{\subsection}{0pt}{2.5mm}{1mm}
+\titlespacing*{\subsection}{0pt}{4mm}{1.6mm}
+
+% Uniform spacing for the paper lists inside "Research".
+\newlist{paperlist}{enumerate}{1}
+\setlist[paperlist]{label=\arabic*.,leftmargin=*,labelsep=0.5em,topsep=0pt,parsep=0pt,itemsep=1.4ex}
 
 %-------------------------
 % Custom commands
@@ -168,22 +175,21 @@
 \input{shared/interests}
 
 \subsection{Job Market Paper}
-\begin{enumerate}[leftmargin=*,labelsep=0.5em]
+\begin{paperlist}
   \item \textbf{\jmpTitle} \jmpAuthors\par
     % {\footnotesize \jmpAbstract}\par
-\end{enumerate}
+\end{paperlist}
 
 \subsection{Working Papers}
-\begin{enumerate}[leftmargin=*,labelsep=0.5em]
+\begin{paperlist}
   \item \textbf{\synTitle} \synAuthors\\[0.5ex]
     {\footnotesize
       % \synAbstract\\[0.4ex]
       \synStatus}\par
-    \vspace{1.2ex}
 
   \item \textbf{\levTitle} \levAuthors\par
     % {\footnotesize \levAbstract}\par
-\end{enumerate}
+\end{paperlist}
 
 \subsection{Works in Progress}
 \input{shared/works_in_progress}
