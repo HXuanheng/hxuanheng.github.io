@@ -78,7 +78,7 @@
 
 % Uniform spacing for the paper lists inside "Research".
 \newlist{paperlist}{enumerate}{1}
-\setlist[paperlist]{label=\arabic*.,leftmargin=*,labelsep=0.5em,topsep=0pt,parsep=0pt,itemsep=1.1ex}
+\setlist[paperlist]{label={[\arabic*]},leftmargin=*,labelsep=0.5em,topsep=0pt,parsep=0pt,itemsep=1.1ex}
 
 %-------------------------
 % Custom commands
@@ -177,19 +177,18 @@
 \vspace{-1.3mm}
 
 \subsection{Job Market Paper}
-% Single entry: numbering it "1." would imply a list that is missing its other items.
-% The phantom label keeps its title on the same indent as the numbered entries below.
-\begin{paperlist}[label={\hphantom{1.}}]
+% Numbering is continuous across JMP, Working Papers and Works in Progress ([resume]).
+\begin{paperlist}
   \item \textbf{\jmpTitle} \jmpAuthors\par
     % {\footnotesize \jmpAbstract}\par
 \end{paperlist}
 
 \subsection{Working Papers}
-\begin{paperlist}
-  \item \textbf{\synTitle} \synAuthors\\[0.1ex]
-    {\footnotesize\itshape
+\begin{paperlist}[resume]
+  \item \textbf{\synTitle} \synAuthors\par\vspace{0.5ex}
+    {\footnotesize\itshape\setlength{\leftskip}{1.25ex}
       % \synAbstract\\[0.4ex]
-      \synStatus}\par
+      \synStatus\par}
 
   \item \textbf{\levTitle} \levAuthors\par
     % {\footnotesize \levAbstract}\par
