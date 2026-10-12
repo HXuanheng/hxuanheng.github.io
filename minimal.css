@@ -1,0 +1,97 @@
+/* minimal.css - home page (index.html) only, loaded after styles.css.
+   Academic-serif single column: no cards, shadows or buttons; numbered papers [1]..[n]
+   continuous across Working Papers and Works in Progress, matching the CV.
+   papers/*.html and personal/ still use styles.css alone. */
+
+/* de-decoration */
+.container{max-width:var(--col,780px)}
+.main-header,.dark-mode .main-header{background:transparent;border-bottom:none;padding:1.25rem 0 .5rem}
+.theme-switch button,.dark-mode .theme-switch button{background:none;border:none;box-shadow:none;font-size:1rem;width:auto;height:auto;padding:.25rem}
+.top-nav a{font-weight:400;border-bottom:none}
+.top-nav a:hover{border-bottom:none}
+.content{padding:1rem 0}
+.profile-header{gap:1.5rem;margin-bottom:1.25rem}
+.profile-header .profile-image{width:var(--photo,120px);height:var(--photo,120px);border:none}
+.profile-info h1{font-size:2rem;margin-bottom:.15rem}
+.profile-info h2{font-size:1.1rem;font-weight:400}
+.profile-info h3{font-size:1rem}
+.intro-text{max-width:none}
+.intro-text p{font-size:1.02rem}
+.hero-buttons{gap:1.5rem;margin:1rem 0 0}
+.button,.primary-button,.secondary-button,.dark-mode .secondary-button{background:none;border:none;padding:0;border-radius:0;font-size:1rem;font-weight:500;color:var(--primary-color);box-shadow:none}
+.button:hover,.primary-button:hover,.secondary-button:hover,.dark-mode .secondary-button:hover{background:none;color:var(--primary-color);text-decoration:underline}
+.section{margin:0;padding:2.25rem 0 0}
+.section-title{font-size:1.2rem;margin-bottom:1.1rem;padding-bottom:.35rem;border-bottom:1px solid var(--border-light)}
+.dark-mode .section-title{border-color:var(--border-dark)}
+.section-title::after{display:none}
+.publications-container{gap:1.6rem}
+.publication-card,.project-card,.dark-mode .publication-card,.dark-mode .project-card{border:none;box-shadow:none;background:transparent;border-radius:0;height:auto}
+.publication-content,.project-content{padding:0}
+.publication-title,.project-content h3{font-size:1.08rem;margin-bottom:.2rem;line-height:1.4}
+.paper-eyebrow{font-size:.72rem;margin-bottom:.2rem}
+.publication-card .paper-keywords,.project-card .paper-keywords{margin-top:.3rem}
+.abstract-container{margin-top:.35rem}
+.abstract-toggle{font-size:.9rem;text-decoration:none;margin-bottom:.25rem}
+.abstract-toggle i{font-size:.8rem}
+.abstract-content,.dark-mode .abstract-content{background:none;border-radius:0;border-left:2px solid var(--border-light);padding:.25rem 0 .25rem 1rem}
+.dark-mode .abstract-content{border-left-color:var(--border-dark)}
+.publication-links{margin-top:.35rem}
+.publication-links:empty{display:none}
+.link-button,.dark-mode .link-button{background:none;padding:0;border-radius:0;color:var(--primary-color);font-size:.9rem}
+.link-button:hover{background:none;text-decoration:underline}
+.cv-content{margin:0}
+.cv-header,.dark-mode .cv-header{border-bottom:1px solid var(--border-light);padding-bottom:.35rem;margin-bottom:1.1rem;flex-direction:row;align-items:baseline}
+.dark-mode .cv-header{border-color:var(--border-dark)}
+.cv-header h1,.dark-mode .cv-header h1{font-size:1.2rem;color:inherit}
+.download-cv-btn{background:none;border:none;box-shadow:none;padding:0;color:var(--primary-color);font-size:.95rem;font-weight:500;gap:.4rem}
+.download-cv-btn:hover{background:none;transform:none;box-shadow:none;text-decoration:underline}
+.cv-embed,.dark-mode .cv-embed{border-radius:0;box-shadow:none}
+.cv-embed iframe{height:720px}
+.contact-info-card,.dark-mode .contact-info-card{border:none;box-shadow:none;background:transparent;padding:0;max-width:none}
+.contact-item{margin-bottom:1rem;gap:1rem;flex-direction:row;text-align:left;align-items:flex-start}
+.contact-icon{font-size:1rem;color:var(--text-muted-light);margin:0;width:1.25rem}
+.contact-details h3{font-size:.95rem;margin-bottom:.15rem}
+.contact-details p{margin-bottom:.1rem}
+.footer{margin-top:3rem;padding:1.25rem 0}
+@media (max-width:640px){.profile-header{flex-direction:row;text-align:left}.profile-header .profile-image{width:84px;height:84px}.profile-info h1{font-size:1.6rem}.hero-buttons{justify-content:flex-start;flex-wrap:wrap}}
+.header-name{display:none}
+.publication-links:not(:has(a)){display:none}
+.abstract-content{margin-bottom:.25rem}
+button{font-family:inherit}
+@media (max-width:768px){
+ .mobile-nav-toggle{display:none!important}
+ .top-nav{order:1;flex-basis:auto}
+ .top-nav ul,.dark-mode .top-nav ul{display:flex;flex-direction:row;position:static;background:none;border:none;box-shadow:none;padding:0;margin:0;gap:1.1rem}
+ .top-nav a{padding:0}
+ .top-nav a:hover,.dark-mode .top-nav a:hover{background:none}
+}
+@media (max-width:640px){
+ .contact-item{flex-direction:row;text-align:left;gap:1rem}
+ .contact-icon{align-self:flex-start}
+ .contact-details{text-align:left}
+ .contact-details p,.contact-details a{word-break:normal}
+ .contact-info-card{padding:0}
+}
+.abstract-container{margin-bottom:0}.abstract-toggle{padding:0;margin-bottom:0}.abstract-content{margin-top:.5rem}
+
+/* academic serif */
+:root{--col:720px;--photo:112px;--primary-color:#1f3a68;--secondary-color:#1f3a68}
+body{font-family:'Source Serif 4',Georgia,serif;line-height:1.6}
+.dark-mode{--primary-color:#9db4dc}
+.profile-info h1{font-weight:600}
+.section-title,.cv-header h1,.dark-mode .cv-header h1{font-variant:small-caps;font-weight:400;font-size:1.3rem;letter-spacing:.03em;border-bottom-color:currentColor}
+.dark-mode .section-title,.dark-mode .cv-header{border-bottom-color:var(--text-muted-dark)}
+.cv-header{border-bottom-color:var(--text-light)}
+.paper-eyebrow{font-variant:small-caps;text-transform:none;letter-spacing:.04em;font-size:.9rem;font-weight:600}
+.paper-keywords,.paper-status{font-size:.88rem}
+.publication-title,.project-content h3{font-weight:600}
+.title-authors a,.publication-title a{text-decoration:none}
+/* numbered entries, continuous across Working Papers and Works in Progress (matches CV) */
+#research{counter-reset:paper}
+.publication-card,.project-card{counter-increment:paper;position:relative;padding-left:2.4em;overflow:visible}
+.publication-title::before,.project-content h3::before{content:"[" counter(paper) "]";position:absolute;left:0;font-weight:400;color:var(--text-muted-light)}
+.dark-mode .publication-title::before,.dark-mode .project-content h3::before{color:var(--text-muted-dark)}
+.publications-container{gap:2.1rem}
+.title-authors a{white-space:nowrap}
+@media (min-width:1024px){html{font-size:17px}:root{--col:760px}}
+@media (max-width:480px){.hero-buttons{flex-direction:row;flex-wrap:wrap;gap:.4rem 1.25rem}.hero-buttons .button{width:auto;justify-content:flex-start}}
