@@ -93,5 +93,64 @@ body{font-family:'Source Serif 4',Georgia,serif;line-height:1.6}
 .dark-mode .publication-title::before,.dark-mode .project-content h3::before{color:var(--text-muted-dark)}
 .publications-container{gap:2.1rem}
 .title-authors a{white-space:nowrap}
-@media (min-width:1024px){html{font-size:17px}:root{--col:760px}}
+/* fluid sizing: text and column scale with the screen (17px on phones -> 19px on wide monitors);
+   column is in rem, so paper titles fit on one line at any browser zoom */
+html{font-size:clamp(17px, 12px + 0.38vw, 19px)}
+:root{--col:50rem;--photo:8.5rem}
+.publication-title,.project-content h3{font-size:1.02rem}
+.profile-info h1{font-size:2.4rem}
+.profile-info h2{font-size:1.2rem}
+.profile-info h3{font-size:1.05rem}
 @media (max-width:480px){.hero-buttons{flex-direction:row;flex-wrap:wrap;gap:.4rem 1.25rem}.hero-buttons .button{width:auto;justify-content:flex-start}}
+
+/* abstracts: justified, hyphenated so word gaps stay even; small phones keep a ragged edge,
+   because a ~300px justified column opens large gaps between words */
+@media (min-width:700px){.abstract-content p{text-align:justify;hyphens:auto;-webkit-hyphens:auto}}
+
+/* phones */
+@media (max-width:640px){
+ .container{padding:0 1.15rem}
+ .profile-header{gap:1rem;align-items:center}
+ .profile-header .profile-image{width:5.5rem;height:5.5rem}
+ .profile-info h1{font-size:1.75rem}
+ .profile-info h2,.profile-info h3{font-size:.95rem}
+ /* same hanging [n] as desktop, narrower gutter so text keeps most of the width */
+ .publication-card,.project-card{padding-left:1.8em}
+ .abstract-content,.dark-mode .abstract-content{padding-left:.75rem}
+ .paper-figures--2up{grid-template-columns:1fr}
+ .cv-embed iframe{height:70vh}
+}
+@media (max-width:380px){
+ .profile-header .profile-image{width:4.75rem;height:4.75rem}
+ .profile-info h1{font-size:1.5rem}
+ .profile-info h2,.profile-info h3{font-size:.88rem}
+}
+
+/* intro split into short paragraphs */
+.intro-text p{margin-bottom:0}
+.intro-text p+p{margin-top:.7rem}
+
+/* paper links (e.g. SSRN) sit on the same row as Show Abstract; the abstract opens below both */
+.abstract-container:has(.paper-link){display:flex;flex-wrap:wrap;align-items:baseline;column-gap:1.4rem}
+.abstract-container .abstract-toggle{order:1}
+.abstract-container .paper-link{order:2;font-size:.9rem;color:var(--primary-color);text-decoration:none}
+.abstract-container .paper-link:hover{text-decoration:underline}
+.abstract-container .paper-link i{font-size:.7em;margin-left:.15em;vertical-align:.1em}
+.abstract-container .abstract-content{order:3;flex-basis:100%}
+
+/* paper landing pages (papers/*.html): same academic-serif look as the home page */
+.paper-back{font-size:.9rem;color:var(--text-muted-light);text-decoration:none}
+.dark-mode .paper-back{color:var(--text-muted-dark)}
+.paper-back:hover{color:var(--primary-color)}
+.paper-hero,.dark-mode .paper-hero{max-width:none;margin:1.25rem 0 0;padding:0 0 1.5rem;border-bottom:1px solid var(--text-light)}
+.dark-mode .paper-hero{border-bottom-color:var(--text-muted-dark)}
+.paper-title{font-size:1.9rem;font-weight:600;line-height:1.25;margin:.2rem 0 .6rem}
+.paper-authors{font-size:1.02rem}
+.paper-authors a{text-decoration-thickness:1px;text-decoration-style:dotted}
+.paper-actions{margin-top:.9rem;gap:1.4rem}
+.paper-abstract,.dark-mode .paper-abstract{max-width:none;margin:1.75rem 0 0;padding:.1rem 0 .1rem 1rem;background:none;border-radius:0;border-left:2px solid var(--border-light)}
+.dark-mode .paper-abstract{border-left-color:var(--border-dark)}
+.paper-abstract h2,.dark-mode .paper-abstract h2{font-variant:small-caps;text-transform:none;letter-spacing:.04em;font-size:1rem;font-weight:600;color:inherit;margin-bottom:.4rem}
+.paper-abstract p{line-height:1.65}
+@media (min-width:700px){.paper-abstract p{text-align:justify;hyphens:auto;-webkit-hyphens:auto}}
+.paper-keywords{max-width:none}
