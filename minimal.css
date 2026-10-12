@@ -131,7 +131,7 @@ html{font-size:clamp(17px, 12px + 0.38vw, 19px)}
 .intro-text p+p{margin-top:.7rem}
 
 /* paper links (e.g. SSRN) sit on the same row as Show Abstract; the abstract opens below both */
-.abstract-container:has(.paper-link){display:flex;flex-wrap:wrap;align-items:baseline;column-gap:1.4rem}
+.abstract-container.has-links{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:1.4rem}
 .abstract-container .abstract-toggle{order:1}
 .abstract-container .paper-link{order:2;font-size:.9rem;color:var(--primary-color);text-decoration:none}
 .abstract-container .paper-link:hover{text-decoration:underline}
