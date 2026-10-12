@@ -989,7 +989,7 @@ ul {
 }
 
 .paper-keywords-label {
-    font-weight: 600;
+    font-weight: 400;
     color: var(--text-light);
     margin-right: 0.4rem;
 }
