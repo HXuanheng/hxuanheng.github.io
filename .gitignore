@@ -14,3 +14,10 @@ references.html
 # Teaching page — hidden for now. Re-enable by removing this line and restoring
 # the nav links + sitemap entry.
 teaching.html
+
+# Personal photos — local only, not published
+picture/
+
+# Unlinked pages/files — local only, not published
+personal/
+papers/synergies20260531.pdf
